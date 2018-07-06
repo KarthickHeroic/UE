@@ -4,6 +4,7 @@ import { ServicesProvider} from './../../providers/services/services';
 
 import { LoginPage } from './../../pages/login/login';
 import { SalesPosPage } from '../sales-pos/sales-pos';
+import { ToastController } from 'ionic-angular';
 /**
  * Generated class for the SalesPosRptPage page.
  *
@@ -21,7 +22,7 @@ export class SalesPosRptPage {
   getData = [];
   total;
   rTotal;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, public platform:Platform,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, public platform: Platform, private toastCtrl: ToastController,
    ) {
 
     this.fromDate = navParams.get('fromDate');
@@ -52,25 +53,46 @@ export class SalesPosRptPage {
     // console.log('ionViewDidLoad SalesPosRptPage');
   }
 
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Server Error',
+      duration: 3000,
+      position: 'bottom'
+    });
+    toast.present();
+  }
+
   getdata(fromDate){   
     this.getData = [];
 
-    this.service.getSalesPos(fromDate).map(res => res).subscribe(data => { 
+    this.service.getSalesPos(fromDate).map(res => res).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
-      this.getData.push(SubString[0]) 
+      this.getData.push(SubString[0])
       this.getData = JSON.parse(this.getData[0]);
-      console.log(this.getData);      
+      console.log(this.getData);
+      this.rTotal = 0;    
+      for (let i = 0; i < this.getData.length; i++) {
+      
+        if (this.getData[i]["NT"]!="")
+        {
+          this.total = parseFloat(this.getData[i]["NT"]);
+        }
+        else
+        {
+          this.total='0.00';
+        }
+      
+        console.log(this.total)
+        
+          this.rTotal = +this.total + +this.rTotal;
+        }      
+           
+      this.rTotal = this.rTotal.toFixed(2);
   
+    }, err => {
+      this.presentToast()
+    });
 
-this.rTotal=0;
-      for ( let i = 0; i < this.getData.length; i++) {       
-        this.total =  parseFloat(this.getData[i]["NT"]); 
-        this.rTotal = this.total+this.rTotal;      }    
-    this.rTotal =  this.rTotal.toFixed(2);
-if(this.rTotal=='NaN'){
-  this.rTotal='0.00'
-}
-      });
 }
 
 }

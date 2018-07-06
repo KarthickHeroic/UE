@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { ServicesProvider} from './../../providers/services/services';
 import { LoginPage } from './../../pages/login/login';
+import { ToastController } from 'ionic-angular';
 /**
  * Generated class for the RptGetShiftRptPage page.
  *
@@ -23,7 +24,7 @@ export class RptGetShiftRptPage {
   getData = [];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider,public platform:Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, public platform: Platform, private toastCtrl: ToastController) {
     this.fromDate = new Date(navParams.get('fromDate'));
     this.shift = navParams.get('shift');
     this.site = navParams.get('site');
@@ -36,6 +37,14 @@ export class RptGetShiftRptPage {
   onLogout(){
     this.service.storageSet();      
     this.navCtrl.push(LoginPage);     
+  }
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Server Error',
+      duration: 3000,
+      position: 'bottom'
+    });
+    toast.present();
   }
   onExit(){
     this.platform.exitApp(); 
@@ -59,7 +68,11 @@ this.rTotal=0;
     }    
     this.rTotal =  this.rTotal.toFixed(2);
 
+      },
+      err => {
+        this.presentToast()
       });
+
 }
 
 }

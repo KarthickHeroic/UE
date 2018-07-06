@@ -16,7 +16,7 @@ export class MyApp {
   rootPage:any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, storage: Storage) {
-
+    splashScreen.hide();    
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -30,8 +30,7 @@ export class MyApp {
         else
         {
           this.rootPage = LoginPage;
-        }
-        console.log('Your age is', val);
+        }       
       });
 
     });

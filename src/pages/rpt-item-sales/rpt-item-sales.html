@@ -22,11 +22,11 @@
 
 <form name="userform" id="form" #formCtrl="ngForm" (ngSubmit)="getCashRpt(formCtrl)">
 <ion-item>
-  <ion-label>To Date</ion-label>
+  <ion-label>From Date</ion-label>
   <ion-datetime displayFormat="MM/DD/YYYY" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
 </ion-item>
 <ion-item>
-  <ion-label>From Date</ion-label>
+  <ion-label>To Date</ion-label>
   <ion-datetime displayFormat="MM/DD/YYYY" name="toDate" ngModel #toDate="ngModel" id="toDate"></ion-datetime>
 </ion-item>
 <ion-item>

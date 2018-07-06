@@ -38,7 +38,7 @@ export class ServicesProvider {
     Params = Params.append('FDate', fromDate); 
     Params = Params.append('Shift', Shift); 
     Params = Params.append('SiteN', site);    
-    return this.http.get(url,{params: Params, responseType:'text'});    
+    return this.http.get(url,{params: Params, responseType:'text'})
   }
 
   getSalesPos(fromDate){
@@ -52,6 +52,5 @@ export class ServicesProvider {
     this.storage.set('Status', 'logout');    
   }
   
-
 }
 

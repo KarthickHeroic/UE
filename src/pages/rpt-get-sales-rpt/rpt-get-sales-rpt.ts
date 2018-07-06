@@ -4,6 +4,8 @@ import { ServicesProvider} from './../../providers/services/services';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { LoginPage } from './../../pages/login/login';
+
+import { ToastController } from 'ionic-angular';
 /**
  * Generated class for the RptGetSalesRptPage page.
  *
@@ -24,7 +26,7 @@ export class RptGetSalesRptPage {
   setData = [];
   rTotal;
   total;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, public http: HttpClient, public platform:Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, public http: HttpClient, public platform: Platform, private toastCtrl: ToastController) {
     this.fromDate = new Date(navParams.get('fromDate'));
     this.toDate = new Date(navParams.get('toDate'));
     this.site = navParams.get('site');
@@ -41,6 +43,17 @@ export class RptGetSalesRptPage {
   onExit(){
     this.platform.exitApp(); 
   }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Server Error',
+      duration: 3000,
+      position: 'bottom'
+    });
+    toast.present();
+  }
+
+
   getdata(fromDate, toDate, site){   
     this.getData = [];
 
@@ -103,6 +116,9 @@ this.rTotal=0;
     }    
     this.rTotal =  this.rTotal.toFixed(2);
 
-      });
+    }, err => {
+      this.presentToast()
+    });
+
 }
 }
