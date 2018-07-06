@@ -1,0 +1,78 @@
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar> 
+</ion-header> -->
+
+
+
+<ion-content class="dashboard" >
+  <div id="dashboard" padding>
+<div class="logo">
+  <img src="assets/imgs/logo.png" alt="UE Logo">
+</div>
+<mat-grid-list cols="2" rowHeight="2:2">
+  <mat-grid-tile>
+    <div class="tile" (click)="cashReport()">
+      <div class="pos">
+        <div class="image">
+          <img src="assets/imgs/money-sack.png">
+        </div>
+        <div class="title">Cash Position</div>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="tile" (click)="salesReport()">
+      <div class="pos">
+        <div class="image">
+          <img src="assets/imgs/shopping-cart.png">
+        </div>
+        <div class="title">Item Sales</div>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="tile" (click)="shiftReport()">
+      <div class="pos">
+        <div class="image">
+            <img src="assets/imgs/change-position.png">
+        </div>
+        <div class="title">Shift Production</div>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="tile" (click)="salePosReport()">
+      <div class="pos">
+        <div class="image">
+            <img src="assets/imgs/been-here-marker.png">
+        </div>
+        <div class="title">Sales Position</div>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+  </div>
+
+<div class="bottom-button">
+  <div class="button-pos exit">
+    <button ion-button (click)="onExit()">
+      <ion-icon class="icon-padding" name="close-circle"></ion-icon>
+     Exit</button>
+  </div>
+    <div class="button-pos logout">
+      <button ion-button (click)="onLogout()">
+        <ion-icon class="icon-padding" name="log-out" ></ion-icon>
+         Logout</button>
+    </div>
+</div>
+
+</ion-content>

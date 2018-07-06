@@ -1,0 +1,43 @@
+<!--
+  Generated template for the RptCashPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cash Position 
+      <ion-icon item-end name="refresh" class="refresh-icon" (click)="refresh()"></ion-icon>
+        <ion-icon item-end name="log-out" class="logout-icon" (click)="onLogout()"></ion-icon>
+</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content id="cash">
+<ion-card *ngFor="let Data of getData">
+
+  <ion-item class="card-item">
+    <ion-avatar item-start class="left-item">
+    <ion-badge item-end class="item-name">{{Data.SiteName}}</ion-badge>
+    </ion-avatar>
+    <p>{{Data.LastUpdated}}</p>
+    <ion-avatar item-end>
+      <ion-badge item-end>{{Data.CashBal}}</ion-badge>
+    </ion-avatar>
+  </ion-item>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <div class="total">
+    <ion-item>
+      <h2>Total</h2>
+      <p></p>
+      <ion-avatar item-end>
+        <ion-badge item-end>{{rTotal}}</ion-badge>
+      </ion-avatar>
+    </ion-item>
+  </div>
+     <button ion-button class="exit-button" (click)="onExit()">
+      <ion-icon class="icon-padding" name="close-circle"></ion-icon>
+     Exit</button>
+</ion-footer>

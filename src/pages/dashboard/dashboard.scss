@@ -1,0 +1,101 @@
+
+
+mat-grid-list{
+    margin-top: 10%;
+}
+.dashboard{
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, #0d0a4f 20%, #0d0a4f 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(49%, rgba(255,255,255,1)), color-stop(20%, #0d0a4f), color-stop(100%, #0d0a4f));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, #0d0a4f 20%, #0d0a4f 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, #0d0a4f 20%, #0d0a4f 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, #0d0a4f 20%, #0d0a4f 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, #0d0a4f 20%, #0d0a4f 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#0d0a4f', GradientType=0 );  
+    .scroll-content{
+        margin-bottom: 0px !important;
+    }
+
+}
+#dashboard{
+    
+    .logo{
+    width: 25%;
+    margin: 0 auto;
+    padding-bottom: 5px; 
+ 
+}
+
+
+ 
+.tile{         
+     border: 1px solid #121126;
+    background-color: #161c66;
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    .pos{
+     position: absolute;
+     top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    }
+          
+       .image{
+           text-align: center;
+    width: 40px;
+    margin: 0 auto;
+}
+.title
+{   white-space: nowrap;     
+    font-size: 15px;   
+    color:#fff;
+    padding-top: 10px
+
+}
+}
+}
+
+
+.bottom-button{
+position: absolute;
+    bottom: 0;
+    width: 100%;
+     .button-pos
+    {
+        width: 50%;
+        float: left;
+        button{
+            width: 100%;
+            border-radius: 00px;
+            padding: 0;
+            margin:0px;
+            height: 45px;      
+        }
+    }
+    .exit
+    {
+        button{
+ background-color: #ff3637
+        }
+       
+    }
+    .logout
+    {
+        button{
+ background-color: #161c66
+        }
+       
+    }
+
+    
+   .icon-padding
+   {
+        padding: 0px 10px;
+   }
+}
+
+    
