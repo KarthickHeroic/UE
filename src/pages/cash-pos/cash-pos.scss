@@ -1,6 +1,10 @@
 #cash{
     background-color: #f3f3f3;
-}
+    .scroll-content{
+        margin-bottom: 100px !important;
+       }
+    }
+
 ion-navbar button .button-inner{
  justify-content: left;
 }
@@ -65,7 +69,4 @@ position: absolute;
    .icon-padding
    {
         padding: 0px 10px;
-   }
-   .scroll-content{
-    margin-bottom: 100px !important;
    }

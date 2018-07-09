@@ -12,13 +12,12 @@
 </ion-header> -->
 
 
-
 <ion-content class="dashboard" >
-  <div id="dashboard" padding>
+<div id="dashboard" padding>
 <div class="logo">
   <img src="assets/imgs/logo.png" alt="UE Logo">
 </div>
-<mat-grid-list cols="2" rowHeight="2:2">
+<mat-grid-list cols="2" rowHeight="2:1.5">
   <mat-grid-tile>
     <div class="tile" (click)="cashReport()">
       <div class="pos">
@@ -59,9 +58,18 @@
       </div>
     </div>
   </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="tile" (click)="FuelEntry()">
+      <div class="pos">
+        <div class="image">
+            <img src="assets/imgs/gas-station.png">
+        </div>
+        <div class="title">Fuel Stock</div>
+      </div>
+    </div>
+  </mat-grid-tile>
 </mat-grid-list>
-  </div>
-
+</div>
 <div class="bottom-button">
   <div class="button-pos exit">
     <button ion-button (click)="onExit()">
@@ -74,5 +82,4 @@
          Logout</button>
     </div>
 </div>
-
 </ion-content>

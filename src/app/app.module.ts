@@ -15,12 +15,17 @@ import { RptShiftPage } from '../pages/rpt-shift/rpt-shift';
 import { RptGetShiftRptPage } from './../pages/rpt-get-shift-rpt/rpt-get-shift-rpt';
 import { SalesPosPage } from './../pages/sales-pos/sales-pos';
 import { SalesPosRptPage } from './../pages/sales-pos-rpt/sales-pos-rpt';
+import { FuelEntryPage } from './../pages/fuel-entry/fuel-entry';
+
+
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
 import { IonicStorageModule } from '@ionic/storage';
 import { ServicesProvider } from '../providers/services/services';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,7 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     RptGetSalesRptPage,
     RptGetShiftRptPage,
     SalesPosPage,
-    SalesPosRptPage
+    SalesPosRptPage,
+    FuelEntryPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     MatInputModule,
     MatGridListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDividerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -64,7 +71,8 @@ import { HttpClientModule } from '@angular/common/http';
     RptGetSalesRptPage,
     RptGetShiftRptPage,
     SalesPosPage,
-    SalesPosRptPage
+    SalesPosRptPage,
+    FuelEntryPage
   ],
   providers: [
     StatusBar,

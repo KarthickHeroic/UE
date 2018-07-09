@@ -68,8 +68,7 @@ export class SalesPosRptPage {
     this.service.getSalesPos(fromDate).map(res => res).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
-      this.getData = JSON.parse(this.getData[0]);
-      console.log(this.getData);
+      this.getData = JSON.parse(this.getData[0]);     
       this.rTotal = 0;    
       for (let i = 0; i < this.getData.length; i++) {
       
@@ -81,9 +80,7 @@ export class SalesPosRptPage {
         {
           this.total='0.00';
         }
-      
-        console.log(this.total)
-        
+       
           this.rTotal = +this.total + +this.rTotal;
         }      
            

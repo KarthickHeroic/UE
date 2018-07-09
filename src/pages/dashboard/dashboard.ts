@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 import { RptItemSalesPage } from './../rpt-item-sales/rpt-item-sales';
 import { RptShiftPage } from './../rpt-shift/rpt-shift';
 import { SalesPosRptPage } from './../sales-pos-rpt/sales-pos-rpt';
+import { FuelEntryPage } from './../fuel-entry/fuel-entry';
 import { LoginPage } from './../login/login';
 
 /**
@@ -25,7 +26,7 @@ export class DashboardPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
+   
   }
   cashReport(){  
     this.navCtrl.push(CashPosPage);
@@ -38,6 +39,9 @@ export class DashboardPage {
   }
   salePosReport() {
     this.navCtrl.push(SalesPosRptPage);
+  }
+  FuelEntry() {
+    this.navCtrl.push(FuelEntryPage);
   }
   onLogout(){
     this.storage.set('Status', 'logout'); 

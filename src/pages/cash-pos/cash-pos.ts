@@ -47,19 +47,17 @@ export class CashPosPage {
     this.platform.exitApp(); 
   }
   getdata(sType){   
+    
     this.getData = [];
     this.service.getCash(sType).map(res => res).subscribe(data => { 
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
-      this.getData = JSON.parse(this.getData[0]);
+      this.getData = JSON.parse(this.getData[0]);    
       this.rTotal = this.getData[this.getData.length-1]["CashBal"];       
-      this.getData.splice(-1,1); 
-
-     
+      this.getData.splice(-1,1);      
       },
       err => { 
         this.presentToast()
       });
   }
-
 }
