@@ -39,9 +39,16 @@
                     <ion-option>Out</ion-option>                  
               </ion-select>
             </ion-item>  
-          <mat-form-field class="field">
-              <input type="text" ngModel name="VehicleNo" #VehicleNo="ngModel" id="VehicleNo" matInput placeholder="Vehicle No">
-            </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" (change)="getDriver()" >
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+            
             <mat-form-field class="field">
                 <input type="text" ngModel name="VehicleType" #VehicleType="ngModel" id="VehicleType" matInput placeholder="Vehicle Type">
               </mat-form-field>

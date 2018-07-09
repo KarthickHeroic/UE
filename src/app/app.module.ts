@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
@@ -57,7 +58,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatGridListModule,
     HttpClientModule,
-    MatDividerModule
+    MatDividerModule,
+    MatAutocompleteModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

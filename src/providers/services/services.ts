@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams,  } from '@angular/common/http';
-
+import { HttpParams } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 
 /*
@@ -46,6 +45,17 @@ export class ServicesProvider {
     let Params = new HttpParams();
     Params = Params.append('FDate', fromDate);     
     return this.http.get(url,{params: Params, responseType:'text'});    
+  }
+
+  getFuel() {
+
+    let url = "http://49.207.180.49/GenIt/GenData.asmx/LoadFStock";  
+    return this.http.get(url, { responseType: 'text', withCredentials:true });
+  }
+
+  getVehicle() {
+    let url = "http://49.207.180.49/GenIt/GenData.asmx/LoadVD";
+    return this.http.get(url, { responseType: 'text'});
   }
 
   storageSet(){
