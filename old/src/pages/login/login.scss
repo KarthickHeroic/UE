@@ -1,0 +1,75 @@
+
+#loginpage{
+    background-color: #0d0a4f;
+    // background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, #0d0a4f 30%, #0d0a4f 100%);
+    // background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(49%, rgba(255,255,255,1)), color-stop(30%, #0d0a4f), color-stop(100%, #0d0a4f));
+    // background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, #0d0a4f 30%, #0d0a4f 100%);
+    // background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, #0d0a4f 30%, #0d0a4f 100%);
+    // background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, #0d0a4f 30%, #0d0a4f 100%);
+    // background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, #0d0a4f 30%, #0d0a4f 100%);
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#0d0a4f', GradientType=0 );  
+    mat-form-field, button{
+    width: 100%;
+}
+
+
+.mat-form-field-underline .mat-form-field-ripple{
+    background-color:#fff !important;
+}
+.mat-form-field-underline{
+    background-color:#ccc !important;
+}
+
+.mat-form-field-placeholder{
+
+    color:#ccc;
+    font-weight: 100;
+  }
+  
+.mat-focused .mat-form-field-placeholder{
+  
+    color:#fff;
+  }
+  .mat-input-element{
+      color:#fff !important;
+  }
+input.mat-input-element { 
+    height: 20px !important;
+}
+
+
+  
+}
+.button-rpt
+{
+    margin-top: 20px !important;
+    height: 50px !important;
+    border-radius:0 !important; 
+}
+.logo{
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 10%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.continer {      
+    padding: 10px 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+}
+
+
+//   ::ng-deep .mat-form-field-underline .mat-form-field-ripple{
+  
+//     background-color:red;
+//   }
+  
+//   ::ng-deep .mat-form-field-underline{
+  
+//     background-color:red;
+//   }

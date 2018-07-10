@@ -10,4 +10,4 @@ import { CashPosPage } from './cash-pos';
     IonicPageModule.forChild(CashPosPage),
   ],
 })
-export class RptCashPageModule {}
+export class CashPosPageModule {}

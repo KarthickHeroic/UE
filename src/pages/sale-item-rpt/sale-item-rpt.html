@@ -1,0 +1,61 @@
+<!--
+  Generated template for the SaleItemRptPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Sales Items Report</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let Data of setData" id="salesRpt">
+    <ion-item class="card-item">
+      <ion-avatar item-start class="left-item">
+        <ion-badge item-end class="item-name">{{Data.MaterialName}}</ion-badge>
+      </ion-avatar>
+      <p>
+        <strong>Mode :</strong>{{Data.Mode}}
+        <strong>NL :</strong>: {{Data.NL}}
+        <ion-badge class="bage-item">{{Data.NetWt}}</ion-badge>
+      </p>
+      <p>
+        <strong>Mode :</strong> {{Data.Mode2}}
+        <strong> NL :</strong> {{Data.NL2}}
+        <ion-badge class="bage-item" item-end>{{Data.NetWt2}}</ion-badge>
+      </p>
+      <!-- <ion-avatar item-end>        
+        <ion-badge item-end>132465.687</ion-badge>
+      </ion-avatar>
+      <ion-avatar item-end>         
+        <ion-badge item-end>132465.687</ion-badge>
+      </ion-avatar> -->
+    </ion-item>
+    <div class="sub-total">
+      <p> {{Data.TotalMode}} NL: {{Data.TotalNL}}
+        <ion-badge class="bage-item" style=" background-color: #738098;" item-end>{{Data.TotalNetWt}}</ion-badge>
+      </p>
+    </div>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <div class="total">
+    <ion-item>
+      <h2>Total</h2>
+      <p></p>
+      <ion-avatar item-end>
+        <ion-badge item-end>{{rTotal}}</ion-badge>
+      </ion-avatar>
+
+    </ion-item>
+  </div>
+</ion-footer>

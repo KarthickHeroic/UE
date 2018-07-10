@@ -5,119 +5,121 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>FuelEntry</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Fuel Entry</ion-title>
   </ion-navbar>
+
 
 </ion-header>
 
+<ion-content id="fuel-entry">
+  <form name="entryForm" id="form" #formCtrl="ngForm" (ngSubmit)="OnfuelEntry(formCtrl)">
+    <div padding>
 
-<ion-content  id="fuel-entry">
-    <form name="entryForm" id="form" #formCtrl="ngForm" (ngSubmit)="OnfuelEntry(formCtrl)">
-  <div padding>
-    
       <mat-form-field class="field">
-          <input type="text" ngModel name="billnumber" #billnumber="ngModel" id="billnumber" matInput placeholder="Bill Number">
-        </mat-form-field>
-     
-        <ion-item>
-            <ion-label>Date</ion-label>
-            <ion-datetime displayFormat="MM/DD/YYYY" name="Date" ngModel #Date="ngModel" id="Date"></ion-datetime>
-          </ion-item>  
-        <ion-item>
-            <ion-label>Fuel</ion-label>
-            <ion-select ngModel name="Fuel" #Fuel="ngModel" id="Fuel">             
-                  <ion-option>Inward</ion-option>
-                  <ion-option>OutWard</ion-option>                  
-            </ion-select>
-          </ion-item>    
-          <ion-item>
-              <ion-label>Fuel From</ion-label>
-              <ion-select ngModel name="fuelFrom" #fuelFrom="ngModel" id="fuelFrom">               
-                    <ion-option>Petrol Bunk</ion-option>
-                    <ion-option>Out</ion-option>                  
-              </ion-select>
-            </ion-item>  
+        <input type="text" ngModel name="billnumber" #billnumber="ngModel" id="billnumber" matInput placeholder="Bill Number">
+      </mat-form-field>
+
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" name="Date" ngModel #Date="ngModel" id="Date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fuel</ion-label>
+        <ion-select ngModel name="Fuel" #Fuel="ngModel" id="Fuel">
+          <ion-option>Inward</ion-option>
+          <ion-option>OutWard</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fuel From</ion-label>
+        <ion-select ngModel name="fuelFrom" #fuelFrom="ngModel" id="fuelFrom">
+          <ion-option>Petrol Bunk</ion-option>
+          <ion-option>Out</ion-option>
+        </ion-select>
+      </ion-item>
 
       <mat-form-field class="example-full-width">
-        <input type="text" placeholder="Pick one"  aria-label="Number"  matInput [formControl]="myControl" [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete" >
+        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
             {{option}}
           </mat-option>
         </mat-autocomplete>
-      </mat-form-field>       
-     <div class="driver">
+      </mat-form-field>
+      <div class="driver">
         <ion-label>Driver Name</ion-label>
-        <ion-item>   
-                        <ion-chip *ngFor="let dName of driverName">
-                <ion-label>{{dName}}</ion-label>
-              </ion-chip> 
-        </ion-item>   
-     </div>
-          
-       
-    
-  
-            <mat-form-field class="field">
-                <input type="text" ngModel name="VehicleType" #VehicleType="ngModel" id="VehicleType" matInput placeholder="Vehicle Type">
-              </mat-form-field>
-           
-  </div>
- 
-
-  <mat-divider></mat-divider>
-  <div padding>
-      <mat-form-field class="field">
-          <input type="text" ngModel name="FuelLtr" #FuelLtr="ngModel" id="FuelLtr" matInput placeholder="Fuel(In Ltrs.)">
-        </mat-form-field>
         <ion-item>
-            <ion-label>Meter Fault</ion-label>
-            <ion-checkbox ngModel name="meterFault" #meterFault="ngModel" id="meterFault"></ion-checkbox>
-          </ion-item>
-  </div>
-  <mat-divider></mat-divider>
-  <div padding>
-      <mat-form-field class="field">
-          <input type="text" ngModel name="OpenKM" #OpenKM="ngModel" id="OpenKM" matInput placeholder="Opening KM/Hrs">
-        </mat-form-field>
-        <mat-form-field class="field">
-            <input type="text" ngModel name="CloseKM" #CloseKM="ngModel" id="CloseKM" matInput placeholder="Closing KM/Hrs">
-          </mat-form-field>
-          <mat-form-field class="field">
-              <input type="text" ngModel name="KMPL" #KMPL="ngModel" id="KMPL" matInput placeholder="KMPL">
-            </mat-form-field>
-  </div>
+          <ion-chip *ngFor="let dName of driverName">
+            <ion-label>{{dName}}</ion-label>
+          </ion-chip>
+        </ion-item>
+      </div>
 
-  <mat-divider></mat-divider>
-  <div padding>
-      <mat-form-field class="field">
-          <input type="text" ngModel name="filledBy" #filledBy="ngModel" id="filledBy" matInput placeholder="Filled By">
-        </mat-form-field>
-      
-            <ion-item>
-                <ion-label>Mode</ion-label>
-                <ion-select ngModel name="mode" #mode="ngModel" id="mode">
-                  <ion-option>Select</ion-option>
-                      <ion-option>Inward</ion-option>
-                      <ion-option>OutWard</ion-option>                  
-                </ion-select>
-              </ion-item>
-              <mat-form-field class="field">
-                  <input type="text" ngModel name="RateLiter" #RateLiter="ngModel" id="RateLiter" matInput placeholder="Rate/Litre">
-                </mat-form-field>
-                <mat-form-field class="field">
-                    <input type="text" ngModel name="Amount" #Amount="ngModel" id="Amount" matInput placeholder="Amount">
-                  </mat-form-field>
-                  <mat-form-field class="field">
-                      <input type="text" ngModel name="Remarks" #Remarks="ngModel" id="Remarks" matInput placeholder="Remarks">
-                      
-                    </mat-form-field>
 
-                    <button ion-button type="submit" type="submit" block>Store</button>
-  </div>
-       
-      
-        </form>
+
+
+      <mat-form-field class="field">
+        <input type="text" ngModel name="VehicleType" #VehicleType="ngModel" id="VehicleType" matInput placeholder="Vehicle Type">
+      </mat-form-field>
+
+    </div>
+
+
+    <mat-divider></mat-divider>
+    <div padding>
+      <mat-form-field class="field">
+        <input type="text" ngModel name="FuelLtr" #FuelLtr="ngModel" id="FuelLtr" matInput placeholder="Fuel(In Ltrs.)">
+      </mat-form-field>
+      <ion-item>
+        <ion-label>Meter Fault</ion-label>
+        <ion-checkbox ngModel name="meterFault" #meterFault="ngModel" id="meterFault"></ion-checkbox>
+      </ion-item>
+    </div>
+    <mat-divider></mat-divider>
+    <div padding>
+      <mat-form-field class="field">
+        <input type="text" ngModel name="OpenKM" #OpenKM="ngModel" id="OpenKM" matInput placeholder="Opening KM/Hrs">
+      </mat-form-field>
+      <mat-form-field class="field">
+        <input type="text" ngModel name="CloseKM" #CloseKM="ngModel" id="CloseKM" matInput placeholder="Closing KM/Hrs">
+      </mat-form-field>
+      <mat-form-field class="field">
+        <input type="text" ngModel name="KMPL" #KMPL="ngModel" id="KMPL" matInput placeholder="KMPL">
+      </mat-form-field>
+    </div>
+
+    <mat-divider></mat-divider>
+    <div padding>
+      <mat-form-field class="field">
+        <input type="text" ngModel name="filledBy" #filledBy="ngModel" id="filledBy" matInput placeholder="Filled By">
+      </mat-form-field>
+
+      <ion-item>
+        <ion-label>Mode</ion-label>
+        <ion-select ngModel name="mode" #mode="ngModel" id="mode">
+          <ion-option>Select</ion-option>
+          <ion-option>Inward</ion-option>
+          <ion-option>OutWard</ion-option>
+        </ion-select>
+      </ion-item>
+      <mat-form-field class="field">
+        <input type="text" ngModel name="RateLiter" #RateLiter="ngModel" id="RateLiter" matInput placeholder="Rate/Litre">
+      </mat-form-field>
+      <mat-form-field class="field">
+        <input type="text" ngModel name="Amount" #Amount="ngModel" id="Amount" matInput placeholder="Amount">
+      </mat-form-field>
+      <mat-form-field class="field">
+        <input type="text" ngModel name="Remarks" #Remarks="ngModel" id="Remarks" matInput placeholder="Remarks">
+
+      </mat-form-field>
+
+      <button ion-button type="submit" type="submit" block>Store</button>
+    </div>
+
+
+  </form>
 </ion-content>

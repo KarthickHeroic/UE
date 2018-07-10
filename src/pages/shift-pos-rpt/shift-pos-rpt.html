@@ -1,0 +1,44 @@
+<!--
+  Generated template for the ShiftPosRptPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Shift Production Report</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content id="shift-rpt">
+
+  <ion-card *ngFor="let Data of getData">
+    <ion-item class="card-item">
+      <ion-avatar item-end class="left-item">
+        <ion-badge item-end class="item-name">{{Data.Ton}}</ion-badge>
+      </ion-avatar>
+      <p>{{Data.Title}}</p>
+      <ion-avatar item-end>
+        <ion-badge item-end>{{Data.Amount}}</ion-badge>
+      </ion-avatar>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <div class="total">
+    <ion-item>
+      <h2>Total</h2>
+      <p></p>
+      <ion-avatar item-end>
+        <ion-badge item-end>{{rTotal}}</ion-badge>
+      </ion-avatar>
+    </ion-item>
+  </div>
+</ion-footer>

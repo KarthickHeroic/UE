@@ -1,52 +1,59 @@
+
+
+// Angular Imports
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+
+// Ionic Imports
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from '@ionic/storage';
 
+// Component Imports
 import { MyApp } from './app.component';
+
+// Pages Imports
 import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
-import { DashboardPage } from '../pages/dashboard/dashboard';
-import { RptGetSalesRptPage } from '../pages/rpt-get-sales-rpt/rpt-get-sales-rpt';
-import { CashPosPage } from '../pages/cash-pos/cash-pos';
-import { RptItemSalesPage } from '../pages/rpt-item-sales/rpt-item-sales';
-import { RptShiftPage } from '../pages/rpt-shift/rpt-shift';
-import { RptGetShiftRptPage } from './../pages/rpt-get-shift-rpt/rpt-get-shift-rpt';
-import { SalesPosPage } from './../pages/sales-pos/sales-pos';
-import { SalesPosRptPage } from './../pages/sales-pos-rpt/sales-pos-rpt';
+import { LoginPage } from './../pages/login/login';
+import { ShiftPosRptPage } from './../pages/shift-pos-rpt/shift-pos-rpt';
+import { ShiftPosPage } from './../pages/shift-pos/shift-pos';
+import { SalePosRptPage } from './../pages/sale-pos-rpt/sale-pos-rpt';
+import { SalePosPage } from './../pages/sale-pos/sale-pos';
+import { SaleItemRptPage } from './../pages/sale-item-rpt/sale-item-rpt';
+import { SaleItemPage } from './../pages/sale-item/sale-item';
 import { FuelEntryPage } from './../pages/fuel-entry/fuel-entry';
+import { CashPosPage } from './../pages/cash-pos/cash-pos';
 
 
 
+
+// Material Imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
-import { IonicStorageModule } from '@ionic/storage';
 import { ServicesProvider } from '../providers/services/services';
-import { HttpClientModule } from '@angular/common/http';
-
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    ShiftPosRptPage,
     LoginPage,
-    DashboardPage,
+    ShiftPosPage,
+    SalePosRptPage,
+    SaleItemRptPage,
+    SaleItemPage,
+    FuelEntryPage,
     CashPosPage,
-    RptItemSalesPage,
-    RptShiftPage,
-    RptGetSalesRptPage,
-    RptGetShiftRptPage,
-    SalesPosPage,
-    SalesPosRptPage,
-    FuelEntryPage
+    SalePosPage
   ],
   imports: [
     BrowserModule,
@@ -64,17 +71,17 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    HomePage,  
     LoginPage,
-    DashboardPage,
+    ShiftPosRptPage,
+    ShiftPosPage,
+    SalePosRptPage,
+    SaleItemRptPage,
+    SaleItemPage,
+    FuelEntryPage,
     CashPosPage,
-    RptItemSalesPage,
-    RptShiftPage,
-    RptGetSalesRptPage,
-    RptGetShiftRptPage,
-    SalesPosPage,
-    SalesPosRptPage,
-    FuelEntryPage
+    SalePosPage
+   
   ],
   providers: [
     StatusBar,

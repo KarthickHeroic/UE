@@ -1,41 +1,64 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { SalePosRptPage } from './../pages/sale-pos-rpt/sale-pos-rpt';
+
+import { LoginPage } from './../pages/login/login';
+import { Component, ViewChild } from '@angular/core';
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Storage } from '@ionic/storage';
-import { LoginPage } from '../pages/login/login';
-import { DashboardPage } from '../pages/dashboard/dashboard';
-@Component({
-  templateUrl: 'app.html',
 
+import { HomePage } from '../pages/home/home';
+import { ShiftPosPage } from './../pages/shift-pos/shift-pos';
+import { SaleItemPage } from './../pages/sale-item/sale-item';
+import { FuelEntryPage } from './../pages/fuel-entry/fuel-entry';
+import { CashPosPage } from './../pages/cash-pos/cash-pos';
+
+import { Storage } from '@ionic/storage';
+@Component({
+  templateUrl: 'app.html'
 })
 export class MyApp {
+  @ViewChild(Nav) nav: Nav;
 
-  
+  rootPage: any;
 
-  rootPage:any;
+  pages: Array<{title: string, component: any}>;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, storage: Storage) {
-    splashScreen.hide();    
-    platform.ready().then(() => {
+  constructor(public platform: Platform, public statusBar: StatusBar, public storage: Storage, public splashScreen: SplashScreen) {
+    this.initializeApp();
+
+    storage.get('Status').then((val) => {
+      if (val == 'login') {
+        this.rootPage = HomePage;
+      }
+      else {
+        this.rootPage = LoginPage;
+      }
+    });
+
+    // used for an example of ngFor and navigation
+    this.pages = [
+      { title: 'Home', component: HomePage },
+      { title: 'Cash Position', component: CashPosPage },
+      { title: 'Sales Items', component: SaleItemPage },
+      { title: 'Shift Production', component: ShiftPosPage },
+      { title: 'Sales Position', component: SalePosRptPage },
+      { title: 'Fuel Entry', component: FuelEntryPage }
+    ];
+
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();     
-    //  
-      storage.get('Status').then((val) => {
-        if (val =='login'){
-          this.rootPage = DashboardPage;
-        }      
-        else
-        {
-          this.rootPage = LoginPage;
-        }       
-      });
-
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
     });
   }
 
-
+  openPage(page) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.nav.setRoot(page.component);
+  }
 }
-

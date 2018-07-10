@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServicesProvider } from '../../providers/services/services';
 import { LoginPage } from './../../pages/login/login';
 import { ToastController } from 'ionic-angular';
+import { map } from 'rxjs/operators';
 /**
- * Generated class for the RptCashPage page.
+ * Generated class for the CashPosPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,19 +13,19 @@ import { ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-rpt-cash',
+  selector: 'page-cash-pos',
   templateUrl: 'cash-pos.html',
 })
 export class CashPosPage {
-  public getData=[];
+  public getData = [];
   total = 0.0;
-  rTotal:string;
-   constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, public platform: Platform, private toastCtrl: ToastController) {
+  rTotal: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController) {
     this.getdata('s');
   }
 
   ionViewDidLoad() {
-   
+
   }
 
   presentToast() {
@@ -36,28 +37,27 @@ export class CashPosPage {
     toast.present();
   }
 
-  refresh(){ 
+  refresh() {
     this.getdata("r");
   }
-  onLogout(){    
-    this.service.storageSet();      
-    this.navCtrl.push(LoginPage);     
+  onLogout() {
+    this.service.storageSet();
+    this.navCtrl.push(LoginPage);
   }
-  onExit(){
-    this.platform.exitApp(); 
-  }
-  getdata(sType){   
-    
+
+  getdata(sType) {
+
     this.getData = [];
-    this.service.getCash(sType).map(res => res).subscribe(data => { 
+    this.service.getCash(sType).pipe(map(res => res)).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
-      this.getData = JSON.parse(this.getData[0]);    
-      this.rTotal = this.getData[this.getData.length-1]["CashBal"];       
-      this.getData.splice(-1,1);      
-      },
-      err => { 
+      this.getData = JSON.parse(this.getData[0]);
+      this.rTotal = this.getData[this.getData.length - 1]["CashBal"];
+      this.getData.splice(-1, 1);
+    },
+      err => {
         this.presentToast()
       });
   }
+
 }

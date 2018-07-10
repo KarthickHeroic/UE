@@ -7,18 +7,18 @@
 
 <ion-content padding id="loginpage">
 
-  <div class="continer">  
-      <div class="logo">
-          <img src="assets/imgs/logo.png" alt="UE Logo">
-        </div>
-      <form name="userform" id="form" #formCtrl="ngForm" (ngSubmit)="Submit(formCtrl)">
-          <mat-form-field class="field">
-              <input type="text" ngModel name="username" #username="ngModel" id="username" matInput placeholder="User Name">
-            </mat-form-field>       
+  <div class="continer">
+    <div class="logo">
+      <img src="assets/imgs/logo.png" alt="UE Logo">
+    </div>
+    <form name="userform" id="form" #formCtrl="ngForm" (ngSubmit)="Submit(formCtrl)">
+      <mat-form-field class="field">
+        <input type="text" ngModel name="username" #username="ngModel" id="username" matInput placeholder="User Name">
+      </mat-form-field>
       <mat-form-field>
         <input type="password" ngModel name="password" #password="ngModel" id="password" matInput placeholder="Password">
-        </mat-form-field>    
-        <button class="button-rpt" type="submit" mat-raised-button >Login</button>
-      </form>   
+      </mat-form-field>
+      <button class="button-rpt" type="submit" mat-raised-button>Login</button>
+    </form>
   </div>
 </ion-content>

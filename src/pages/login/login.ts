@@ -1,10 +1,7 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,Platform } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
-import { App, ViewController } from 'ionic-angular';
-import { DashboardPage } from './../dashboard/dashboard';
+import { IonicPage, NavParams, Nav, ViewController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
 /**
  * Generated class for the LoginPage page.
  *
@@ -13,17 +10,17 @@ import { Storage } from '@ionic/storage';
  */
 
 @IonicPage()
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
-alertTitle;
+  alertTitle;
   alertSubtitle;
 
   public rootPage: any = LoginPage;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public viewCtrl: ViewController, public storage: Storage,public platform:Platform,
-      public appCtrl: App) {
+  constructor(public navParams: NavParams, private alertCtrl: AlertController, public viewCtrl: ViewController, public storage: Storage, public nav: Nav) {
   }
 
   ionViewDidLoad() {
@@ -38,36 +35,29 @@ alertTitle;
     });
     alert.present();
   }
-  
+
   pushPage() {
-    this.navCtrl.setRoot(LoginPage);
-    this.navCtrl.push(DashboardPage);
-    this.storage.set('Status', 'login');    
+    this.storage.set('Status', 'login');
+    this.nav.setRoot(HomePage);
+   
   }
 
 
-  Submit(inputs){
-    if (inputs.value.username == "admin")
-    {
-      if (inputs.value.password=="admin")
-      {
+  Submit(inputs) {
+    if (inputs.value.username == "admin") {
+      if (inputs.value.password == "admin") {
         this.pushPage()
       }
-      else
-      {
-        this.alertTitle="Passowrd"
-        this.alertSubtitle ="Password is invalid!"
+      else {
+        this.alertTitle = "Passowrd"
+        this.alertSubtitle = "Password is invalid!"
         this.presentAlert();
       }
     }
-    else
-    {
+    else {
       this.alertTitle = "User Name"
       this.alertSubtitle = "User Name is invalid!"
       this.presentAlert();
     }
-    
-   
-
   }
 }
