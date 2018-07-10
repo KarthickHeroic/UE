@@ -18,4 +18,18 @@
     .mat-form-field-wrapper{
         padding-bottom: 1.75em;
     }
+    .driver{
+        margin-top: 25px;
+        ion-label{
+            color: #909090;
+            font-size: 1.6rem
+        }
+        ion-item{
+            margin-top: 0px;
+        }
+       
+        .chip-md{
+            margin: 0px 5px;
+        }
+    }
 }
