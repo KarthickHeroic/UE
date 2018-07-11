@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { ServicesProvider } from './../../providers/services/services';
 import { map } from 'rxjs/operators';
 /**
@@ -23,7 +23,7 @@ export class ShiftPosRptPage {
   getData = [];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController, public loadingCtrl: LoadingController) {
     this.fromDate = new Date(navParams.get('fromDate'));
     this.shift = navParams.get('shift');
     this.site = navParams.get('site');
@@ -43,6 +43,10 @@ export class ShiftPosRptPage {
     toast.present();
   }
   getdata(fromDate, Shift, site) {
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      content: 'Loading Please Wait...'
+    });
     this.getData = [];
 
     this.service.getShiftPos(fromDate, Shift, site).pipe(map(res => res)).subscribe(data => {
@@ -55,6 +59,7 @@ export class ShiftPosRptPage {
         this.rTotal = this.total + this.rTotal;
       }
       this.rTotal = this.rTotal.toFixed(2);
+      loading.dismiss();
 
     },
       err => {

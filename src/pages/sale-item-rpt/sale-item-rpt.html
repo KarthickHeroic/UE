@@ -47,13 +47,14 @@
   </ion-card>
 </ion-content>
 
-<ion-footer>
+<ion-footer  id="salesRpt">
   <div class="total">
     <ion-item>
-      <h2>Total</h2>
+     
       <p></p>
-      <ion-avatar item-end>
-        <ion-badge item-end>{{rTotal}}</ion-badge>
+      <ion-avatar item-end class="badge-item">
+        Total Cash  <ion-badge item-end>{{csTotal}}</ion-badge>
+        Total Credit  <ion-badge item-end>{{crTotal}}</ion-badge>
       </ion-avatar>
 
     </ion-item>

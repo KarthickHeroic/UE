@@ -1,6 +1,6 @@
 import { SalePosPage } from './../sale-pos/sale-pos';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController,LoadingController } from 'ionic-angular';
 import { ServicesProvider } from './../../providers/services/services';
 import { map } from 'rxjs/operators';
 /**
@@ -19,7 +19,7 @@ export class SalePosRptPage {
   getData = [];
   total;
   rTotal;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController,public loadingCtrl: LoadingController
   ) {
     this.fromDate = navParams.get('fromDate');
     if (this.fromDate != null) {
@@ -46,6 +46,12 @@ export class SalePosRptPage {
     toast.present();
   }
   getdata(fromDate) {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  
+    loading.present();
+  
     this.getData = [];
     this.service.getSalesPos(fromDate).pipe(map(res => res)).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
@@ -62,8 +68,10 @@ export class SalePosRptPage {
         this.rTotal = +this.total + +this.rTotal;
       }
       this.rTotal = this.rTotal.toFixed(2);
+      loading.dismiss();
     }, err => {
-      this.presentToast()
+      this.presentToast();
+
     });
   }
 }

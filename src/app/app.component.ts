@@ -9,7 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ShiftPosPage } from './../pages/shift-pos/shift-pos';
 import { SaleItemPage } from './../pages/sale-item/sale-item';
-import { FuelEntryPage } from './../pages/fuel-entry/fuel-entry';
+// import { FuelEntryPage } from './../pages/fuel-entry/fuel-entry';
 import { CashPosPage } from './../pages/cash-pos/cash-pos';
 
 import { Storage } from '@ionic/storage';
@@ -41,8 +41,8 @@ export class MyApp {
       { title: 'Cash Position', component: CashPosPage },
       { title: 'Sales Items', component: SaleItemPage },
       { title: 'Shift Production', component: ShiftPosPage },
-      { title: 'Sales Position', component: SalePosRptPage },
-      { title: 'Fuel Entry', component: FuelEntryPage }
+      { title: 'Sales Position', component: SalePosRptPage }
+      // { title: 'Fuel Entry', component: FuelEntryPage }
     ];
 
   }
@@ -60,5 +60,11 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+  exit(){
+this.platform.exitApp();
+  }
+  logout(){
+    this.nav.setRoot(LoginPage);  
   }
 }

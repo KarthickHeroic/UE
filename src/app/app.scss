@@ -14,3 +14,21 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.listend{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 0;
+}
+.logout{
+    background-color: #d4caca;
+    .list-md .item-block .item-inner{
+        border-bottom: none !important;
+    }
+}
+.exit{
+    background-color: #FF5722;
+    color: #fff;
+}

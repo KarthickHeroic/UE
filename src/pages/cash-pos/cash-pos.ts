@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServicesProvider } from '../../providers/services/services';
 import { LoginPage } from './../../pages/login/login';
-import { ToastController } from 'ionic-angular';
+import { ToastController, LoadingController } from 'ionic-angular';
 import { map } from 'rxjs/operators';
 /**
  * Generated class for the CashPosPage page.
@@ -20,9 +20,9 @@ export class CashPosPage {
   public getData = [];
   total = 0.0;
   rTotal: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController) {
-    this.getdata('s');
-  }
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController,public loadingCtrl: LoadingController) {
+    this.getdata('s');  }
 
   ionViewDidLoad() {
 
@@ -40,20 +40,22 @@ export class CashPosPage {
   refresh() {
     this.getdata("r");
   }
-  onLogout() {
-    this.service.storageSet();
-    this.navCtrl.push(LoginPage);
-  }
 
   getdata(sType) {
 
     this.getData = [];
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  
+    loading.present();
     this.service.getCash(sType).pipe(map(res => res)).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
       this.getData = JSON.parse(this.getData[0]);
       this.rTotal = this.getData[this.getData.length - 1]["CashBal"];
       this.getData.splice(-1, 1);
+      loading.dismiss();
     },
       err => {
         this.presentToast()

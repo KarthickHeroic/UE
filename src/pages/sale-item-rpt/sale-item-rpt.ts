@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController,LoadingController } from 'ionic-angular';
 import { ServicesProvider } from './../../providers/services/services';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -21,9 +21,9 @@ export class SaleItemRptPage {
   site;
   getData = [];
   setData = [];
-  rTotal;
-  total;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, public http: HttpClient, private toastCtrl: ToastController) {
+  csTotal;
+  crTotal;  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, public http: HttpClient, private toastCtrl: ToastController, public loadingCtrl: LoadingController) {
     this.fromDate = new Date(navParams.get('fromDate'));
     this.toDate = new Date(navParams.get('toDate'));
     this.site = navParams.get('site');
@@ -46,6 +46,11 @@ export class SaleItemRptPage {
 
 
   getdata(fromDate, toDate, site) {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  
+    loading.present();
     this.getData = [];
     this.service.getItemSales(fromDate, toDate, site).pipe(map(res => res)).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
@@ -87,12 +92,18 @@ export class SaleItemRptPage {
           this.setData.push(jsonObj);
         }
       }
-      this.rTotal = 0;
+      this.csTotal = 0;
+      this.crTotal = 0;     
       for (let i = 0; i < this.setData.length; i++) {
-        this.total = parseFloat(this.setData[i]["TotalNetWt"]);
-        this.rTotal = this.total + this.rTotal;
+        let total1 = parseFloat(this.setData[i]["NetWt"]);
+        this.csTotal = total1 + this.csTotal;
+
+        let total2 = parseFloat(this.setData[i]["NetWt2"]);
+        this.crTotal = total2 + this.crTotal;
       }
-      this.rTotal = this.rTotal.toFixed(2);
+      this.csTotal = this.csTotal.toFixed(2);
+      this.crTotal = this.crTotal.toFixed(2);
+      loading.dismiss();
     }, err => {
       this.presentToast()
     });
