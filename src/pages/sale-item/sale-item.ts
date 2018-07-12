@@ -1,5 +1,5 @@
 import { SaleItemRptPage } from './../sale-item-rpt/sale-item-rpt';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import { ServicesProvider } from './../../providers/services/services';
 
@@ -15,13 +15,20 @@ import { ServicesProvider } from './../../providers/services/services';
   selector: 'page-sale-item',
   templateUrl: 'sale-item.html',
 })
-export class SaleItemPage {
+export class SaleItemPage implements OnInit {
   alertTitle;
   alertSubtitle;
+  fromDateval = new Date().toISOString()
+  toDateval = new Date().toISOString();
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public service: ServicesProvider) {
   }
+  ngOnInit(){
+  
+  }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() {    
+
     console.log('ionViewDidLoad RptItemSalesPage');
   }
   rpt = {}

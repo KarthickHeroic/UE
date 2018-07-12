@@ -19,11 +19,11 @@
   <form name="userform" id="form" #formCtrl="ngForm" (ngSubmit)="getShiftRpt(formCtrl)">
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
+      <ion-datetime displayFormat="MM/DD/YYYY"[(ngModel)]="fromDateval" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Shift</ion-label>
-      <ion-select ngModel name="Shift" #Shift="ngModel" id="Shift">
+      <ion-select ngModel name="Shift" #Shift="ngModel" id="Shift"  [(ngModel)]="All">
         <ion-option>All</ion-option>
         <ion-option>Shift I</ion-option>
         <ion-option>Shift II</ion-option>
@@ -31,13 +31,14 @@
     </ion-item>
     <ion-item>
       <ion-label>Site</ion-label>
-      <ion-select ngModel name="site" #site="ngModel" id="site">
-        <ion-option>Select</ion-option>
-        <ion-option>AUP</ion-option>
-        <ion-option>ABC</ion-option>
-        <ion-option>DSBM I</ion-option>
-        <ion-option>DSBM II</ion-option>
-        <ion-option>DUC</ion-option>
+      <ion-select ngModel name="site" #site="ngModel" id="site">       
+          <ion-option>AUP</ion-option>
+          <ion-option>ABC</ion-option>
+          <ion-option>DUC</ion-option>
+          <ion-option>DSBM I</ion-option>
+          <ion-option>DSBM II</ion-option>
+          <ion-option>DSBM III</ion-option>
+         
       </ion-select>
     </ion-item>
     <button ion-button type="submit" type="submit" block>Find</button>

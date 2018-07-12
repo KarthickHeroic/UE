@@ -23,6 +23,7 @@ export class SaleItemRptPage {
   setData = [];
   csTotal;
   crTotal;  
+  Total;
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, public http: HttpClient, private toastCtrl: ToastController, public loadingCtrl: LoadingController) {
     this.fromDate = new Date(navParams.get('fromDate'));
     this.toDate = new Date(navParams.get('toDate'));
@@ -67,13 +68,14 @@ export class SaleItemRptPage {
       let NetWt2 = null;
       let TotalNetWt = null;
       let jsonObj = null;
-      for (let i = 0; i < this.getData.length; i++) {
+      for (let i = 0; i < this.getData.length; i++) {     
         if (this.getData[i]["MaterialName"] != "") {
           MaterialName = this.getData[i]["MaterialName"];
           Mode = this.getData[i]["Mode"];
           NL = this.getData[i]["NL"];
           NetWt = this.getData[i]["NetWt"];
         } else if (this.getData[i]["Mode"] == "Credit") {
+        
           Mode2 = this.getData[i]["Mode"];
           NL2 = this.getData[i]["NL"];
           NetWt2 = this.getData[i]["NetWt"];
@@ -88,21 +90,30 @@ export class SaleItemRptPage {
             NL2 = " 0 ";
             NetWt2 = " 0 "
           }
-          jsonObj = { "MaterialName": MaterialName, "Mode": Mode, "Mode2": Mode2, "TotalMode": TotalMode, "NL": NL, "NL2": NL2, "TotalNL": TotalNL, "NetWt": NetWt, "NetWt2": NetWt2, "TotalNetWt": TotalNetWt }
+          jsonObj = { "MaterialName": MaterialName, "Mode": Mode, "Mode2": Mode2, "TotalMode": "TL/Sub Total", "NL": NL, "NL2": NL2, "TotalNL": TotalNL, "NetWt": NetWt, "NetWt2": NetWt2, "TotalNetWt": TotalNetWt }
           this.setData.push(jsonObj);
+             Mode2 = null;
+            NL2 = null;
+
         }
       }
+      
       this.csTotal = 0;
       this.crTotal = 0;     
+      this.Total = 0; 
       for (let i = 0; i < this.setData.length; i++) {
         let total1 = parseFloat(this.setData[i]["NetWt"]);
         this.csTotal = total1 + this.csTotal;
 
         let total2 = parseFloat(this.setData[i]["NetWt2"]);
         this.crTotal = total2 + this.crTotal;
+
+        let total = parseFloat(this.setData[i]["TotalNetWt"]);
+        this.Total = total + this.Total;
       }
       this.csTotal = this.csTotal.toFixed(2);
       this.crTotal = this.crTotal.toFixed(2);
+      this.Total = this.Total.toFixed(2);
       loading.dismiss();
     }, err => {
       this.presentToast()

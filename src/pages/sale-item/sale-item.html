@@ -10,7 +10,7 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>Sales Items</ion-title>
+    <ion-title>Items Sales</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -18,22 +18,23 @@
 
   <form name="userform" id="form" #formCtrl="ngForm" (ngSubmit)="getCashRpt(formCtrl)">
     <ion-item>
-      <ion-label>From Date</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
+      <ion-label>From </ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" name="fromDate" ngModel [(ngModel)]="fromDateval" #fromDate="ngModel" id="fromDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>To Date</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" name="toDate" ngModel #toDate="ngModel" id="toDate"></ion-datetime>
+      <ion-datetime displayFormat="MM/DD/YYYY" name="toDate" [(ngModel)]="toDateval" ngModel #toDate="ngModel" id="toDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Site</ion-label>
-      <ion-select ngModel name="site" #site="ngModel" id="site">
-        <ion-option>Select</ion-option>
+      <ion-select ngModel name="site" #site="ngModel" id="site">      
         <ion-option>AUP</ion-option>
         <ion-option>ABC</ion-option>
+        <ion-option>DUC</ion-option>
         <ion-option>DSBM I</ion-option>
         <ion-option>DSBM II</ion-option>
-        <ion-option>DUC</ion-option>
+        <ion-option>DSBM III</ion-option>
+       
       </ion-select>
     </ion-item>
     <button ion-button type="submit" type="submit" block>Find</button>

@@ -20,7 +20,7 @@
   <form name="userform" id="form" #formCtrl="ngForm" (ngSubmit)="getSalesPosRpt(formCtrl)">
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fromDateval" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
     </ion-item>
     <button ion-button type="submit" type="submit" block>Find</button>
   </form>

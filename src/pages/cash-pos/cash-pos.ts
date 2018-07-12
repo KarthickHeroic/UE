@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServicesProvider } from '../../providers/services/services';
-import { LoginPage } from './../../pages/login/login';
 import { ToastController, LoadingController } from 'ionic-angular';
 import { map } from 'rxjs/operators';
 /**

@@ -15,7 +15,7 @@ import { ServicesProvider } from './../../providers/services/services';
   templateUrl: 'sale-pos.html',
 })
 export class SalePosPage {
-
+  fromDateval = new Date().toISOString()
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, 
     public service: ServicesProvider) {
   }

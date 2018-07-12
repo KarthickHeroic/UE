@@ -1,7 +1,7 @@
 
 #salesRpt{
     .scroll-content{
-        margin-bottom: 100px !important;
+        margin-bottom: 55px !important;
        }
     .bage-item{
         margin: 5px;
@@ -33,6 +33,81 @@
         .badge-item{
             font-size: 14px;
         }
+        .badge-md{
+            padding: 3px 8px;
+        }
+        .item-md.item-block .item-inner {
+            padding-right: 0px;
+            border-bottom: none;
+        }
+        ion-grid:last-child{
+            background-color: #ffffff;
+            color: #4f4f52;
+            
+        }
+        .item{
+            height: 100%;
+        }
+        .label-md{
+            margin: 0px;
+        }
     }
+    
+    ion-grid{
+        padding: 0px;
+        font-size: 13px;
+        color: #505050;
+    }
+    ion-grid:last-child{
+        background-color: #e8e8f3;
+        color: #4f4f52;
+    }
+
+
+    .item{
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    .mode{
+        text-align: left;
+    }
+    .nl{
+        text-align: right;
+    }
+    .amount{
+        text-align: right;
+        margin-right: 10px;
+    }
+    .label-md {
+        margin: 5px 0px 0px 0;
+    }
+    .list-md .item-block .item-inner{
+        padding: 0;
+    }
+    
+   
    
 }
+#salesRptheader{
+    .header{       
+        height: 35px;
+        background-color:#ccc;
+        .item{
+            margin-left: 10px;
+            
+        }
+        .mode{
+            text-align: left;
+        }
+        .nl{
+            text-align: right;
+        }
+        .amount{
+            text-align: right;
+            margin-right: 5px;
+        }
+    }
+}
+
+
+

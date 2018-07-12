@@ -18,6 +18,8 @@ import { ServicesProvider } from './../../providers/services/services';
 export class ShiftPosPage {
   alertTitle;
   alertSubtitle;
+  fromDateval = new Date('06/27/2018').toISOString();
+  All= "All"
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public service: ServicesProvider) {
   }
 

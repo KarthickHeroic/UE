@@ -4,59 +4,140 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header id="salesRptheader">
 
   <ion-navbar>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>Sales Items Report</ion-title>
+    <ion-title>Items Sales Report</ion-title>
   </ion-navbar>
-
+<div class="header">
+    <ion-grid>
+        <ion-row>
+          <ion-col align-self-start col-4>
+            <div class="Item">
+             Item
+            </div>
+          </ion-col>
+          <ion-col align-self-start col-2>
+            <div class="Mode">
+              Mode
+            </div>
+          </ion-col>
+          <ion-col align-self-start col-3>
+            <div class="nl">
+            NL
+            </div>
+          </ion-col>
+          <ion-col align-self-start col-3>
+            <div class="amount">
+           Amount
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>   
+  
+</div>
 </ion-header>
 
-<ion-content>
-
-  <ion-card *ngFor="let Data of setData" id="salesRpt">
-    <ion-item class="card-item">
-      <ion-avatar item-start class="left-item">
-        <ion-badge item-end class="item-name">{{Data.MaterialName}}</ion-badge>
-      </ion-avatar>
-      <p>
-        <strong>Mode :</strong>{{Data.Mode}}
-        <strong>NL :</strong>: {{Data.NL}}
-        <ion-badge class="bage-item">{{Data.NetWt}}</ion-badge>
-      </p>
-      <p>
-        <strong>Mode :</strong> {{Data.Mode2}}
-        <strong> NL :</strong> {{Data.NL2}}
-        <ion-badge class="bage-item" item-end>{{Data.NetWt2}}</ion-badge>
-      </p>
-      <!-- <ion-avatar item-end>        
-        <ion-badge item-end>132465.687</ion-badge>
-      </ion-avatar>
-      <ion-avatar item-end>         
-        <ion-badge item-end>132465.687</ion-badge>
-      </ion-avatar> -->
-    </ion-item>
-    <div class="sub-total">
-      <p> {{Data.TotalMode}} NL: {{Data.TotalNL}}
-        <ion-badge class="bage-item" style=" background-color: #738098;" item-end>{{Data.TotalNetWt}}</ion-badge>
-      </p>
-    </div>
-  </ion-card>
+<ion-content id="salesRpt">
+    <ion-list>
+        <ion-item *ngFor="let Data of setData">
+            <ion-grid>
+                <ion-row>
+                  <ion-col align-self-start col-4>
+                    <div class="Item" text-wrap>
+                        {{Data.MaterialName}}
+                    </div>
+                  </ion-col>
+                  <ion-col align-self-start col-2>
+                    <div class="Mode">
+                        {{Data.Mode}}
+                    </div>
+                  </ion-col>
+                  <ion-col align-self-start col-3>
+                    <div class="nl">
+                        {{Data.NL}}
+                    </div>
+                  </ion-col>
+                  <ion-col align-self-start col-3>
+                    <div class="amount">
+                        {{Data.NetWt}}
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>   
+              <ion-grid>
+                  <ion-row>
+                    <ion-col align-self-start col-4>
+                      <div class="Item">                         
+                      </div>
+                    </ion-col>
+                    <ion-col align-self-start col-2>
+                      <div class="Mode">
+                          {{Data.Mode2}}
+                      </div>
+                    </ion-col>
+                    <ion-col align-self-start col-3>
+                      <div class="nl">
+                          {{Data.NL2}}
+                      </div>
+                    </ion-col>
+                    <ion-col align-self-start col-3>
+                      <div class="amount">
+                          {{Data.NetWt2}}
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid> 
+                <ion-grid>
+                    <ion-row>
+                      <ion-col align-self-start col-4>
+                        <div class="Item">   
+                          Total                      
+                        </div>
+                      </ion-col>
+                      <ion-col align-self-start col-2>
+                        <div class="Mode">
+                            {{Data.TotalMode}}
+                        </div>
+                      </ion-col>
+                      <ion-col align-self-start col-3>
+                        <div class="nl">
+                            {{Data.TotalNL}}
+                        </div>
+                      </ion-col>
+                      <ion-col align-self-start col-3>
+                        <div class="amount">
+                            {{Data.TotalNetWt}}
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+        </ion-item>
+      </ion-list>
+  
 </ion-content>
 
 <ion-footer  id="salesRpt">
   <div class="total">
     <ion-item>
-     
-      <p></p>
-      <ion-avatar item-end class="badge-item">
-        Total Cash  <ion-badge item-end>{{csTotal}}</ion-badge>
-        Total Credit  <ion-badge item-end>{{crTotal}}</ion-badge>
-      </ion-avatar>
-
+        <ion-grid>
+            <ion-row>
+            
+              <ion-col align-self-start col-4>
+                  Cash <ion-badge item-end>{{csTotal}}</ion-badge>
+              </ion-col>
+              <ion-col align-self-start col-4>
+                  Credit <ion-badge item-end>{{crTotal}}</ion-badge>
+              </ion-col>
+              <ion-col align-self-start col-4>
+                  Total <ion-badge item-end>{{Total}}</ion-badge>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      
     </ion-item>
   </div>
 </ion-footer>
