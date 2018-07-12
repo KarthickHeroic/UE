@@ -59,8 +59,7 @@ export class SaleItemRptPage {
       this.getData = JSON.parse(this.getData[0]);    
       let MaterialName = null;
       let Mode = null;
-      let Mode2 = null;
-      let TotalMode = null;
+      let Mode2 = null;   
       let NL = null;
       let NL2 = null;
       let TotalNL = null;
@@ -81,7 +80,7 @@ export class SaleItemRptPage {
           NetWt2 = this.getData[i]["NetWt"];
         }
         else if (this.getData[i]["Mode"] == "TL / Sub Total : ") {
-          TotalMode = this.getData[i]["Mode"];
+          //TotalMode = this.getData[i]["Mode"];
           TotalNL = this.getData[i]["NL"];
           TotalNetWt = this.getData[i]["NetWt"];
 
@@ -94,7 +93,6 @@ export class SaleItemRptPage {
           this.setData.push(jsonObj);
              Mode2 = null;
             NL2 = null;
-
         }
       }
       

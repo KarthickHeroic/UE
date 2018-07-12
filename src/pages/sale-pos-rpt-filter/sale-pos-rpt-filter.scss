@@ -1,0 +1,37 @@
+#SalesPosRptFilter{
+    .header{
+ .list-md{
+            margin: 0px;
+    }
+    .item-md{
+        height: 50px;
+    padding-left: 7px;
+    padding-right: 7px;
+    }
+    .item-md.item-block .item-inner{padding-right: 0;}
+    .label-md{margin: 0}
+    .item:last-child{padding-right:10px;} 
+    }
+
+    .item{
+        font-size: 14px;
+    color: #717177;
+    text-align: right;
+    padding-left: 0;   
+    line-height: 35px;
+    border-bottom: 1px solid #ccc;
+    padding: 0 5px; 
+    }
+     .item-md.item-block .item-inner{
+                padding-right: 0px;
+                    border-bottom: 0p;
+            }
+            .label-md{
+                margin: 0;
+            }
+            ion-grid, ion-col{
+                padding: 0;
+            }
+            
+    }
+   

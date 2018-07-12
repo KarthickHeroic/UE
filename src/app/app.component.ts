@@ -1,4 +1,4 @@
-import { SalePosRptPage } from './../pages/sale-pos-rpt/sale-pos-rpt';
+
 
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
@@ -11,8 +11,8 @@ import { ShiftPosPage } from './../pages/shift-pos/shift-pos';
 import { SaleItemPage } from './../pages/sale-item/sale-item';
 // import { FuelEntryPage } from './../pages/fuel-entry/fuel-entry';
 import { CashPosPage } from './../pages/cash-pos/cash-pos';
-
 import { Storage } from '@ionic/storage';
+import { SalePosPage } from '../pages/sale-pos/sale-pos';
 @Component({
   templateUrl: 'app.html'
 })
@@ -41,7 +41,7 @@ export class MyApp {
       { title: 'Cash Position', component: CashPosPage },
       { title: 'Sales Items', component: SaleItemPage },
       { title: 'Shift Production', component: ShiftPosPage },
-      { title: 'Sales Position', component: SalePosRptPage }
+      { title: 'Sales Position', component: SalePosPage }
       // { title: 'Fuel Entry', component: FuelEntryPage }
     ];
 

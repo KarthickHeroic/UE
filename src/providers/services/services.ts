@@ -39,10 +39,13 @@ export class ServicesProvider {
     return this.http.get(url, { params: Params, responseType: 'text' })
   }
 
-  getSalesPos(fromDate) {
+  getSalesPos(fromDate, toDate, tonnage, crusher) {
     let url = "http://49.207.180.49/GenIT/GenData.asmx/LoadSP";
     let Params = new HttpParams();
     Params = Params.append('FDate', fromDate);
+    Params = Params.append('TDate', toDate);
+    Params = Params.append('VType', tonnage);
+    Params = Params.append('VSource', crusher);
     return this.http.get(url, { params: Params, responseType: 'text' });
   }
 

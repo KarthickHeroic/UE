@@ -39,6 +39,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { ServicesProvider } from '../providers/services/services';
+import { SalePosRptFilterPage } from '../pages/sale-pos-rpt-filter/sale-pos-rpt-filter';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ServicesProvider } from '../providers/services/services';
     SaleItemPage,
     FuelEntryPage,
     CashPosPage,
-    SalePosPage
+    SalePosPage,
+    SalePosRptFilterPage
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,8 @@ import { ServicesProvider } from '../providers/services/services';
     SaleItemPage,
     FuelEntryPage,
     CashPosPage,
-    SalePosPage
+    SalePosPage,
+    SalePosRptFilterPage
    
   ],
   providers: [
