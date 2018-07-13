@@ -33,11 +33,6 @@ export class SalePosRptFilterPage {
   getData = [];
   setData = [];
   jsonHead={};
-  initVal:number;
-  maxVal:number;
-  setJson1 = {};setJson2 = {};setJson3 = {};setJson4 = {};setJson5 = {};setJson6 = {};
-  setJson7 = {};setJson8 = {};setJson9 = {};setJson10 ={};setJson11 ={};setJson12 ={};
-  setDataHead = [];
   total;
   rTotal;
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController, public loadingCtrl: LoadingController
@@ -71,12 +66,13 @@ export class SalePosRptFilterPage {
 
     this.getData = [];
 
-    this.service.getSalesPos(fromDate, toDate, tonnage, crusher).pipe(map(res => res)).subscribe(data => {
-    //  data= data.replace(/(\r\n\t|\n|\r\t)/gm,"");
+    this.service.getSalesPos(fromDate, toDate, tonnage, crusher).pipe(map(res => res)).subscribe(data => {   
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
       this.getData = JSON.parse(this.getData[0]);    
       this.rTotal = 0;
+      console.log(this.getData);
+      
       for (let i = 1; i < this.getData.length; i++) {
         if (this.getData[i]["C0"]!= "Net Total") {
           this.total = this.getData[i]["C3"];
@@ -90,6 +86,7 @@ export class SalePosRptFilterPage {
        loading.dismiss();
 
     }, err => {
+      console.error(err);
       this.presentToast();
 
     });
