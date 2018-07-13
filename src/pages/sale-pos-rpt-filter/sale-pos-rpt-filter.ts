@@ -62,54 +62,6 @@ export class SalePosRptFilterPage {
     toast.present();
   }
 
-  updateJson(initVal,maxVal){
-    let j =0;
-    for (let i = initVal; i < maxVal; i++) { 
-     
-      this.jsonHead["SN"+j.toString()]=this.getData[i]["SN"];
-      this.setJson1[j]= this.getData[i]["CS"];
-      this.setJson2[j]= this.getData[i]["CR"];
-      this.setJson3[j]= this.getData[i]["NT"];
-      this.setJson4[j]= this.getData[i]["MCS"];
-      this.setJson5[j]= this.getData[i]["MCR"];
-      this.setJson6[j]= this.getData[i]["MNT"];
-      this.setJson7[j]= this.getData[i]["PCS"];
-      this.setJson8[j]= this.getData[i]["PCR"];
-      this.setJson9[j]= this.getData[i]["PNT"];
-      this.setJson10[j]= this.getData[i]["OCS"];
-      this.setJson11[j]= this.getData[i]["OCR"];
-      this.setJson12[j]= this.getData[i]["ONT"] ;
-      j++;
-    }
-
-    this.setJson1["3"]= "Total Cash";
-      this.setJson2["3"]="Total Credit";
-      this.setJson3["3"]="NET Total";
-      this.setJson4["3"]="MSAND Cash";
-      this.setJson5["3"]="MSAND Credit";
-      this.setJson6["3"]="NET Credit";
-      this.setJson7["3"]="PSAND Cash";
-      this.setJson8["3"]="PSAND Credit";
-      this.setJson9["3"]="NET Credit";
-      this.setJson10["3"]="Other Cash";
-      this.setJson11["3"]="Other Credit";
-      this.setJson12["3"]="NET Total";
-
-    this.setData.push(this.jsonHead);
-    this.setData.push(this.setJson1);
-    this.setData.push(this.setJson2);
-    this.setData.push(this.setJson3);
-    this.setData.push(this.setJson4);
-    this.setData.push(this.setJson5);
-    this.setData.push(this.setJson6);
-    this.setData.push(this.setJson7);
-    this.setData.push(this.setJson8);
-    this.setData.push(this.setJson9);
-    this.setData.push(this.setJson10);
-    this.setData.push(this.setJson11);
-    this.setData.push(this.setJson12);
-  }
-
   getdata(fromDate, toDate, tonnage, crusher) {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
@@ -124,14 +76,6 @@ export class SalePosRptFilterPage {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
       this.getData = JSON.parse(this.getData[0]);    
-      console.log(this.getData);
-       
-      // if (crusher == "Crusher") {
-      //   this.updateJson(0,3);
-      // }
-      // else if (this.crusher == "Yard") {       
-      //   this.updateJson(3,6);
-      // }
       this.rTotal = 0;
       for (let i = 1; i < this.getData.length; i++) {
         if (this.getData[i]["C0"]!= "Net Total") {

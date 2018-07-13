@@ -14,6 +14,10 @@
        .label-md {
         margin: 7px 0;
     }
+
+    .alart{
+        background-color: #e6c6c6;
+    }
     }
 
 ion-navbar button .button-inner{
@@ -51,8 +55,7 @@ position: absolute;
 .refresh-icon{    position: absolute;
     right: 18px;
     color: #FFF;}   
- .total{
-       
+ .total{       
     width: 100%;
     height: 60px;
     bottom: 50px;
