@@ -1,5 +1,6 @@
 #SalesPosRptFilter{
     .header{
+        background-color: #dedede;
  .list-md{
             margin: 0px;
     }
@@ -11,20 +12,47 @@
     .item-md.item-block .item-inner{padding-right: 0;}
     .label-md{margin: 0}
     .item:last-child{padding-right:10px;} 
+    .head{
+        height: 35px;
+        line-height: 35px;
+        text-align: right;  
+        padding-right:5px; 
+                         
+    }
+    ion-grid{
+        ion-row{
+            ion-col:last-child{
+                .head{
+                    padding-right: 15px
+                }
+            }
+
+        }
+    }
     }
 
     .item{
-        font-size: 14px;
+        font-size: 12px;
     color: #717177;
     text-align: right;
     padding-left: 0;   
-    line-height: 35px;
-    border-bottom: 1px solid #ccc;
+     line-height: 40px;
     padding: 0 5px; 
+    min-height: 40px;
+    ion-grid{
+        ion-row{
+            ion-col:first-child{
+                .listItem{
+                text-align: left;
+            }
+        }
+        }
+    }
+    
     }
      .item-md.item-block .item-inner{
-                padding-right: 0px;
-                    border-bottom: 0p;
+            padding-right: 0px;
+            border-bottom: 0p;
             }
             .label-md{
                 margin: 0;
@@ -32,6 +60,14 @@
             ion-grid, ion-col{
                 padding: 0;
             }
-            
+            .scroll-content{
+                margin-top: 96px !important;
+            }       
+            ion-item:nth-child(3n+0) {
+                background: #d2d1e6;
+                color: #000;
+                min-height: 20px;
+                line-height: 20px;
+            }     
     }
    

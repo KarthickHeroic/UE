@@ -14,95 +14,131 @@
   </ion-navbar>
   <div class="header">
     <div class="tbheader">
+        <ion-item *ngFor="let Data of getData | slice:0:1;">
         <ion-grid>
+            <ion-row class="title">
+                <ion-col align-self-start col-3>
+              {{Data.Title}}
+              </ion-col>
+              <ion-col align-self-start col-3>
+                NL
+                  </ion-col>
+                  <ion-col align-self-start col-3 text-right>
+                     TON
+                      </ion-col>
+                      <ion-col align-self-start col-3 text-right>
+                         Amount
+                          </ion-col>
+
+            </ion-row>
             <ion-row>
-              <ion-col align-self-start col-7>
-                <div class="itemTitle">
-                 Item
+              <ion-col align-self-start col-3>
+                <div class="Mode">
+                 {{Data.Mode1}}
                 </div>
               </ion-col>
-              <!-- <ion-col align-self-start col-3>
-                <div class="Mode">
-                  Mode
+              <ion-col align-self-start col-3>
+                <div class="nl">
+                  {{Data.NL1}}
                 </div>
-              </ion-col> -->
-              <ion-col align-self-start col-2>
+              </ion-col>
+              <ion-col align-self-start col-3>
                 <div class="ton">
-                Ton
+                {{Data.Ton1}}
                 </div>
               </ion-col>
               <ion-col align-self-start col-3>
                 <div class="amount">
-               Amount
+               {{Data.Amount1}}
                 </div>
               </ion-col>
             </ion-row>
-          </ion-grid>  
-    </div>
-      
-
-      <ion-item *ngFor="let Data of getData | slice:0:2;">
-          <ion-grid>
-              <ion-row>
-                <ion-col align-self-start col-6>
-                  <div class="title" text-wrap>
-                      {{Data.Title}}
+            <ion-row>
+                <ion-col align-self-start col-3>
+                  <div class="Mode">
+                   {{Data.Mode2}}
                   </div>
-                  </ion-col>
-                  <ion-col align-self-start col-3>
-                      <div class="ton">
-                          {{Data.Ton}}
-                      </div>
-                      </ion-col>
-                      <ion-col align-self-start col-3>
-                          <div class="amount">
-                              {{Data.Amount}}
-                          </div>
-                          </ion-col>
+                </ion-col>
+                <ion-col align-self-start col-3>
+                  <div class="nl">
+                    {{Data.NL2}}
+                  </div>
+                </ion-col>
+                <ion-col align-self-start col-3>
+                  <div class="ton">
+                  {{Data.Ton2}}
+                  </div>
+                </ion-col>
+                <ion-col align-self-start col-3>
+                  <div class="amount">
+                 {{Data.Amount2}}
+                  </div>
+                </ion-col>
               </ion-row>
-              </ion-grid>
-              </ion-item>
+          </ion-grid>  
+        </ion-item>
+    </div>      
+
   </div>
 </ion-header>
 
 
 <ion-content id="shift-rpt">
     <ion-list>
-        <ion-item *ngFor="let Data of getData | slice:2:10;">
+        <ion-item *ngFor="let Data of getData | slice:1:10;">
     <ion-grid>
+        <ion-row class="titleVal">
+            {{Data.Title}}
+        </ion-row>
         <ion-row>
-          <ion-col align-self-start col-6>
-            <div class="title" text-wrap>
-                {{Data.Title}}
-            </div>
+            <ion-col align-self-start col-3>
+              <div class="Mode">
+               {{Data.Mode1}}
+              </div>
             </ion-col>
             <ion-col align-self-start col-3>
-                <div class="ton">
-                    {{Data.Ton}}
+              <div class="nl">
+                {{Data.NL1}}
+              </div>
+            </ion-col>
+            <ion-col align-self-start col-3>
+              <div class="ton">
+              {{Data.Ton1}}
+              </div>
+            </ion-col>
+            <ion-col align-self-start col-3>
+              <div class="amount">
+             {{Data.Amount1}}
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col align-self-start col-3>
+                <div class="Mode">
+                 {{Data.Mode2}}
                 </div>
-                </ion-col>
-                <ion-col align-self-start col-3>
-                    <div class="amount">
-                        {{Data.Amount}}
-                    </div>
-                    </ion-col>
-        </ion-row>
+              </ion-col>
+              <ion-col align-self-start col-3>
+                <div class="nl">
+                  {{Data.NL2}}
+                </div>
+              </ion-col>
+              <ion-col align-self-start col-3>
+                <div class="ton">
+                {{Data.Ton2}}
+                </div>
+              </ion-col>
+              <ion-col align-self-start col-3>
+                <div class="amount">
+               {{Data.Amount2}}
+                </div>
+              </ion-col>
+            </ion-row>
         </ion-grid>
         </ion-item>
         </ion-list>
+        </ion-content>
 
-  <!-- <ion-card *ngFor="let Data of getData">
-    <ion-item class="card-item">
-      <ion-avatar item-end class="left-item">
-        <ion-badge item-end class="item-name">{{Data.Ton}}</ion-badge>
-      </ion-avatar>
-      <p>{{Data.Title}}</p>
-      <ion-avatar item-end>
-        <ion-badge item-end>{{Data.Amount}}</ion-badge>
-      </ion-avatar>
-    </ion-item>
-  </ion-card>
-</ion-content> -->
 
 <ion-footer>
   <div class="total">

@@ -19,11 +19,11 @@
   <form name="userform" id="form" #formCtrl="ngForm" (ngSubmit)="getCashRpt(formCtrl)">
     <ion-item>
       <ion-label>From </ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" name="fromDate" ngModel [(ngModel)]="fromDateval" #fromDate="ngModel" id="fromDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" name="fromDate" ngModel [(ngModel)]="fromDateval" #fromDate="ngModel" id="fromDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>To Date</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" name="toDate" [(ngModel)]="toDateval" ngModel #toDate="ngModel" id="toDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" name="toDate" [(ngModel)]="toDateval" ngModel #toDate="ngModel" id="toDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Site</ion-label>

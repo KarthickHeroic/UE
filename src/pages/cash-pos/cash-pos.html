@@ -13,9 +13,43 @@
       <ion-icon item-end name="refresh" class="refresh-icon" (click)="refresh()"></ion-icon>
     </ion-title>
   </ion-navbar>
+  <ion-grid>
+    <ion-row>     
+      <ion-col align-self-start col-3>
+       Site
+      </ion-col>  
+      <ion-col align-self-start col-5 text-left>
+        Last Updated
+      </ion-col>  
+      <ion-col align-self-start col-4 text-right>
+       Cash Balance
+      </ion-col>  
+    </ion-row>
+  </ion-grid> 
+  
 </ion-header>
 <ion-content id="cash">
-  <ion-card *ngFor="let Data of getData">
+    <ion-list>
+        <ion-item *ngFor="let Data of getData">
+            <ion-grid>
+                <ion-row>     
+                  <ion-col align-self-start col-3>
+                      {{Data.SiteName}}
+                  </ion-col> 
+                  <ion-col align-self-start col-5>
+                      {{Data.LastUpdated}}
+                     </ion-col> 
+                     <ion-col align-self-start col-4 text-right>
+                        {{Data.CashBal}}
+                       </ion-col> 
+              </ion-row>
+            </ion-grid>
+        </ion-item>
+      </ion-list>
+
+
+
+  <!-- <ion-card *ngFor="let Data of getData">
     <ion-item class="card-item">
       <ion-avatar item-start class="left-item">
         <ion-badge item-end class="item-name">{{Data.SiteName}}</ion-badge>
@@ -25,7 +59,7 @@
         <ion-badge item-end>{{Data.CashBal}}</ion-badge>
       </ion-avatar>
     </ion-item>
-  </ion-card>
+  </ion-card> -->
 </ion-content>
 <ion-footer>
   <div class="total">

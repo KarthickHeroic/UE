@@ -49,8 +49,7 @@ export class SalePosRptPage {
       content: 'Please wait...'
     });
   
-    loading.present();
-  
+    loading.present();  
     this.getData = [];
     this.service.getSalesPos(fromDate, toDate, tonnage, crusher).pipe(map(res => res)).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
@@ -68,7 +67,7 @@ export class SalePosRptPage {
       }
       this.rTotal = this.rTotal.toFixed(2);
       loading.dismiss();
-    }, err => {
+    }, error => {
       this.presentToast();
 
     });

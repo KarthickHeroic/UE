@@ -3,6 +3,17 @@
     .scroll-content{
         margin-bottom: 100px !important;
        }
+       .item{
+        font-size: 12px;
+        color: #444;
+        padding-left: 2px;
+       }
+       .list-md .item-block .item-inner{
+           padding-right: 0px;
+       }
+       .label-md {
+        margin: 7px 0;
+    }
     }
 
 ion-navbar button .button-inner{
@@ -12,8 +23,7 @@ ion-navbar button .button-inner{
     background-color: #0d0a4f !important;
 }
 ion-title{
-    text-align: center;
-   
+    text-align: center;   
 }
 .toolbar-title-md{
  color:#fff !important;
@@ -54,15 +64,9 @@ position: absolute;
     color: #fff;
     background-color: #9C27B0;}
  }
- .exit-button{
-     width: 100%;
-     border-radius: 0 !important;   
-     height: 45px;
-     margin: 0px;
-     box-shadow: none;
- }
    
    .icon-padding
    {
         padding: 0px 10px;
    }
+

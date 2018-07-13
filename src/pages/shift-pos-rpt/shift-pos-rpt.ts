@@ -43,28 +43,32 @@ export class ShiftPosRptPage {
     toast.present();
   }
   getdata(fromDate, Shift, site) {
-    let loading = this.loadingCtrl.create({
-      spinner: 'hide',
+    let loading = this.loadingCtrl.create({     
       content: 'Loading Please Wait...'
     });
-    this.getData = [];
-
+    loading.present();
+    this.getData = [];  
     this.service.getShiftPos(fromDate, Shift, site).pipe(map(res => res)).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
       this.getData = JSON.parse(this.getData[0]);
-      this.rTotal = 0;
-      for (let i = 0; i < this.getData.length; i++) {
-        this.total = parseFloat(this.getData[i]["Amount"]);
+      console.log(this.getData);
+      
+      this.rTotal = 0;     
+      
+        let amount1 = parseFloat(this.getData[0]["Amount1"]);
+        let amount2 = parseFloat(this.getData[0]["Amount2"]);
+        this.total = amount1+amount2;
         this.rTotal = this.total + this.rTotal;
-      }
-      this.rTotal = this.rTotal.toFixed(2);
+      
+      this.rTotal = this.rTotal.toFixed(3);
       loading.dismiss();
 
     },
-      err => {
-        this.presentToast()
-      });
+    error => {
+      console.log(error)
+      this.presentToast()
+    });
 
   }
 

@@ -20,11 +20,11 @@
   <form name="userform" id="form" #formCtrl="ngForm" (ngSubmit)="getSalesPosRpt(formCtrl)">
     <ion-item>
       <ion-label>From</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fromDateval" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDateval" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>To</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="toDateval" name="toDate" ngModel #toDate="ngModel" id="toDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="toDateval" name="toDate" ngModel #toDate="ngModel" id="toDate"></ion-datetime>
     </ion-item>
         <ion-item>     
             <ion-label></ion-label>

@@ -19,7 +19,7 @@
   <form name="userform" id="form" #formCtrl="ngForm" (ngSubmit)="getShiftRpt(formCtrl)">
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY"[(ngModel)]="fromDateval" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY"[(ngModel)]="fromDateval" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Shift</ion-label>

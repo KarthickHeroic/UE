@@ -19,6 +19,11 @@ mat-grid-list{
 
 }
 #dashboard{
+    mat-grid-list{
+        margin-top: 10%;
+    }
+    .dashboard{
+        background-color: #0d0a4f;}
     
     .logo{
     width: 25%;
