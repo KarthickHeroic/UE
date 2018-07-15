@@ -1,12 +1,14 @@
 #cash{
     background-color: #f3f3f3;
     .scroll-content{
-        margin-bottom: 100px !important;
+        margin-top: 100px !important;
+       
        }
        .item{
-        font-size: 12px;
-        color: #444;
+        font-size: 13px;
+        color:$fontColor1;
         padding-left: 2px;
+        font-weight: 500;
        }
        .list-md .item-block .item-inner{
            padding-right: 0px;
@@ -14,9 +16,31 @@
        .label-md {
         margin: 7px 0;
     }
-
+.siteName, .cashBal{
+    font-weight: 600;
+}
+.dateOn{
+    font-weight: 400;
+}
     .alart{
-        background-color: #e6c6c6;
+        background: #e9e9e9;
+
+        .status::after{
+           
+                content: "";
+                display: block;
+                background: url("../../assets/imgs/checked.png") no-repeat;
+                width: 15px;
+                height: 15px;
+                float: right;
+                margin-left: 8px;
+                background-size: contain;
+           
+        }
+
+    }
+    .alart-padding{
+        padding-right: 23px;
     }
     }
 
@@ -24,7 +48,7 @@ ion-navbar button .button-inner{
  justify-content: left;
 }
 .toolbar-background-md{
-    background-color: #0d0a4f !important;
+    background-color: $themeColor !important;
 }
 ion-title{
     text-align: center;   
@@ -72,4 +96,10 @@ position: absolute;
    {
         padding: 0px 10px;
    }
+
+   .titleRow{
+       font-size: 18px;
+       font-weight: 600;
+       color:$fontColor1;
+   }   
 

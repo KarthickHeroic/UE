@@ -1,33 +1,37 @@
 #home{
-    background-color: #0d0a4f !important;
-    // .logo{
-    //      padding: 10px 10px;
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // margin-right: -50%;
-    // transform: translate(-50%, -50%);
-    // }
-}
+    .toolbar-background-md{
+        background-color: #ffffff !important;
+        
+    }
+    .bar-button-default-md{
+        color:$themeColor
+    }
+    ion-grid{height: 100%;    padding: 0px;}
 
-#dashboard{
     mat-grid-list{
         margin-top: 10%;
+        position: inherit;
     }
-    .dashboard{
-        background-color: #0d0a4f;}
-    
+
     .logo{
     width: 25%;
     margin: 0 auto; 
+    margin-top: 10%; 
          border-radius: 0px; 
 }
 
+.logoHeader{
+    height: 40%
+}
+.menuHeader{
+    height: 60%;
+    background-color: $themeColor;
+}
 
  
 .tile{         
-     border: 1px solid #121126;
-    background-color: #161c66;
+    //  border: 1px solid #121126;
+    // background-color: #161c66;
     position: absolute;
     left: 5px;
     right: 5px;

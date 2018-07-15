@@ -15,6 +15,13 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+
+* {
+    font-family: 'Lato', sans-serif ;
+}
+
 .listend{
     position: absolute;
     left: 0;
@@ -32,3 +39,7 @@
     background-color: #FF5722;
     color: #fff;
 }
+
+$themeColor:#ee222a;
+$fontColor1:#3e3d3d;
+$fontColor2:#353535;

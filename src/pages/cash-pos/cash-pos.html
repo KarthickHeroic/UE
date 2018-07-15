@@ -13,16 +13,16 @@
       <ion-icon item-end name="refresh" class="refresh-icon" (click)="refresh()"></ion-icon>
     </ion-title>
   </ion-navbar>
-  <ion-grid>
+  <ion-grid class="titleRow">
     <ion-row>     
       <ion-col align-self-start col-3>
-       Site
+       SITE
       </ion-col>  
-      <ion-col align-self-start col-5 text-left>
-        Last Updated
+      <ion-col align-self-start col-5 text-center>
+        ON
       </ion-col>  
       <ion-col align-self-start col-4 text-right>
-       Cash Balance
+       BAL.
       </ion-col>  
     </ion-row>
   </ion-grid> 
@@ -33,14 +33,14 @@
         <ion-item *ngFor="let Data of getData">
             <ion-grid>
                 <ion-row>     
-                  <ion-col align-self-start col-3>
+                  <ion-col align-self-start col-3  class="siteName">
                       {{Data.SiteName}}
                   </ion-col> 
-                  <ion-col align-self-start col-5>
+                  <ion-col align-self-start col-5  class="dateOn">
                       {{Data.LastUpdated}}
                      </ion-col> 
-                     <ion-col align-self-start col-4 text-right>
-                        {{Data.CashBal}}
+                     <ion-col align-self-start col-4 text-right  class="cashBal">
+                       <div class="status"> {{Data.CashBal}} </div>
                        </ion-col> 
               </ion-row>
             </ion-grid>

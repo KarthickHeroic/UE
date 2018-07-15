@@ -8,51 +8,56 @@
       <img src="assets/imgs/logo.png" alt="UE Logo">
     </div> -->
 
-    <div id="dashboard" padding>
-        <div class="logo">
-          <img src="assets/imgs/logo.png" alt="UE Logo">
-        </div>
-        <mat-grid-list cols="2" rowHeight="2:1.5">
-          <mat-grid-tile>
-            <div class="tile" (click)="cashReport()">
-              <div class="pos">
-                <div class="image">
-                  <img src="assets/imgs/money-sack.png">
-                </div>
-                <div class="title">Cash Position</div>
-              </div>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="tile" (click)="salesReport()">
-              <div class="pos">
-                <div class="image">
-                  <img src="assets/imgs/shopping-cart.png">
-                </div>
-                <div class="title">Item Sales</div>
-              </div>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="tile" (click)="shiftReport()">
-              <div class="pos">
-                <div class="image">
-                    <img src="assets/imgs/change-position.png">
-                </div>
-                <div class="title">Shift Production</div>
-              </div>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="tile" (click)="salePosReport()">
-              <div class="pos">
-                <div class="image">
-                    <img src="assets/imgs/been-here-marker.png">
-                </div>
-                <div class="title">Sales Position</div>
-              </div>
-            </div>
-          </mat-grid-tile>          
-        </mat-grid-list>
-        </div>
+        <ion-grid>
+            <ion-row class="logoHeader">
+                <div class="logo">
+                    <img src="assets/imgs/logo.png" alt="UE Logo">
+                  </div>
+            </ion-row>
+            <ion-row class="menuHeader">
+                <mat-grid-list cols="2" rowHeight="2:1.5">
+                    <mat-grid-tile>
+                      <div class="tile" (click)="cashReport()">
+                        <div class="pos">
+                          <div class="image">
+                            <img src="assets/imgs/money-sack.png">
+                          </div>
+                          <div class="title">Cash Position</div>
+                        </div>
+                      </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                      <div class="tile" (click)="salesReport()">
+                        <div class="pos">
+                          <div class="image">
+                            <img src="assets/imgs/shopping-cart.png">
+                          </div>
+                          <div class="title">Item Sales</div>
+                        </div>
+                      </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                      <div class="tile" (click)="shiftReport()">
+                        <div class="pos">
+                          <div class="image">
+                              <img src="assets/imgs/change-position.png">
+                          </div>
+                          <div class="title">Shift Production</div>
+                        </div>
+                      </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                      <div class="tile" (click)="salePosReport()">
+                        <div class="pos">
+                          <div class="image">
+                              <img src="assets/imgs/been-here-marker.png">
+                          </div>
+                          <div class="title">Sales Position</div>
+                        </div>
+                      </div>
+                    </mat-grid-tile>          
+                  </mat-grid-list>
+              </ion-row>
+            </ion-grid>
+        
 </ion-content>

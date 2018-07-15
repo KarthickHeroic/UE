@@ -30,10 +30,15 @@ export class CashPosPage {
       var div = document.querySelector('#itemListId');
       for(let i=0;i<this.alartarry.length; i++)
       {    
-        if(this.alartarry[i]==0)
+        if(this.alartarry[i]==1)
         {
           let j=i+1;
           div.querySelectorAll('.item:nth-child(' + j + 'n+0)')[0].classList.add('alart');       
+        }
+        else
+        {
+          let j=i+1;
+          div.querySelectorAll('.item:nth-child(' + j + 'n+0)')[0].classList.add('alart-padding');   
         }    
       }
     },500);
