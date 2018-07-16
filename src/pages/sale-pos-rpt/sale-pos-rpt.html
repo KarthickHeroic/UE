@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header id="salesPosRptHeader">
 
   <ion-navbar>
       <button ion-button menuToggle>
@@ -16,31 +16,63 @@
     </ion-title>
   </ion-navbar>
 
+  <div class="header">
+      <ion-item>
+          <ion-grid>
+              <ion-row>
+                <ion-col align-self-start col-2>
+                  Site
+                  </ion-col>
+                  <ion-col align-self-start col-3>
+                    Cash
+                    </ion-col>
+                    <ion-col align-self-start col-3>
+                      Credit
+                      </ion-col>
+                      <ion-col align-self-start text-right col-4>
+                        Total
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+        </ion-item>
+  </div>
+
 </ion-header>
 
 <ion-content id="salesPosRpt">
-  <ion-card *ngFor="let Data of getData">
-    <ion-item class="card-item">
-      <ion-avatar item-start class="left-item">
-        <ion-badge item-start class="item-name">{{Data.SN}}</ion-badge>
-      </ion-avatar>
-      <p>{{Data.CS}}</p>
-      <p>{{Data.CR}}</p>
-      <ion-avatar item-end>
-        <ion-badge item-end>{{Data.NT}}</ion-badge>
-      </ion-avatar>
-    </ion-item>
-  </ion-card>
-</ion-content>
-
-<ion-footer>
+    <ion-list>
+                    <ion-item *ngFor="let Data of getData">
+                        <ion-grid>
+                            <ion-row>
+                              <ion-col align-self-start col-2 class="siteText">
+                                  {{Data.SN}}
+                                </ion-col>
+                                <ion-col align-self-start col-3>
+                                    {{Data.CS}}
+                                  </ion-col>
+                                  <ion-col align-self-start col-3>
+                                      {{Data.CR}}
+                                    </ion-col>
+                                    <ion-col align-self-start col-4 text-right class="siteText">
+                                        &#8377; {{Data.NT}}
+                                      </ion-col>
+                                </ion-row>
+                                </ion-grid>
+                                </ion-item>
+                    </ion-list>
+<ion-footer id="salesPosRptFooter">
   <div class="total">
-    <ion-item>
-      <h2>Total</h2>
-      <p></p>
-      <ion-avatar item-end>
-        <ion-badge item-end>{{rTotal}}</ion-badge>
-      </ion-avatar>
-    </ion-item>
-  </div>
+      <ion-item>
+          <ion-grid>
+              <ion-row>
+                <ion-col align-self-start col-7>
+                  Total
+                  </ion-col>
+                  <ion-col align-self-start col-5 text-right class="amountText">
+                      &#8377; {{rTotal}}
+                    </ion-col>
+                  </ion-row>
+                  </ion-grid>
+                  </ion-item>
+                  </div>
 </ion-footer>

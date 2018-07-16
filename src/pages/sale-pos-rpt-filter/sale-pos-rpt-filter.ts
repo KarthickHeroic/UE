@@ -1,5 +1,5 @@
-import { Component, Pipe, PipeTransform } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { Component, Pipe, PipeTransform,ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController,Navbar  } from 'ionic-angular';
 import { ServicesProvider } from './../../providers/services/services';
 import { map } from 'rxjs/operators';
 /**
@@ -26,6 +26,7 @@ export class KeysPipe implements PipeTransform {
   templateUrl: 'sale-pos-rpt-filter.html',
 })
 export class SalePosRptFilterPage {
+  @ViewChild(Navbar) navBar: Navbar;
     fromDate;
   toDate;
   tonnage;
@@ -45,8 +46,22 @@ export class SalePosRptFilterPage {
     this.getdata(this.fromDate.toLocaleDateString("en-US"), this.toDate.toLocaleDateString("en-US"), this.tonnage, this.crusher)
    //this.getdatadummy();
   }
+
+  loading = this.loadingCtrl.create({
+    content: 'Please wait...'
+  }); 
   ionViewDidLoad() {
     // console.log('ionViewDidLoad SalesPosRptPage');
+    // this.navBar.backButtonClick = (e:UIEvent)=>{
+    //   // todo something
+    //   console.log("test");
+      
+    //   //this.loading.dismiss();
+    //  }
+  }
+  
+  ionViewDidLeave(){
+    this.loading.dismiss();
   }
   presentToast() {
     let toast = this.toastCtrl.create({
@@ -56,13 +71,10 @@ export class SalePosRptFilterPage {
     });
     toast.present();
   }
-
+   
   getdata(fromDate, toDate, tonnage, crusher) {
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });    
-    
-    loading.present();
+
+    this.loading.present();
 
     this.getData = [];
 
@@ -83,10 +95,11 @@ export class SalePosRptFilterPage {
         this.rTotal = +this.total + +this.rTotal;
       }
       this.rTotal = this.rTotal.toFixed(2);
-       loading.dismiss();
+       this.loading.dismiss();
 
     }, err => {
       console.error(err);
+      this.loading.dismiss();
       this.presentToast();
 
     });

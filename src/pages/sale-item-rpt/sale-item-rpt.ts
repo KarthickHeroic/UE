@@ -34,7 +34,13 @@ export class SaleItemRptPage {
 
     // console.log('ionViewDidLoad RptGetSalesRptPage');
   }
-
+  ionViewDidLeave(){
+    this.loading.dismiss();
+  }
+loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  
 
   presentToast() {
     let toast = this.toastCtrl.create({
@@ -47,11 +53,8 @@ export class SaleItemRptPage {
 
 
   getdata(fromDate, toDate, site) {
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-  
-    loading.present();
+
+    this.loading.present();
     this.getData = [];
     this.service.getItemSales(fromDate, toDate, site).pipe(map(res => res)).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
@@ -112,8 +115,10 @@ export class SaleItemRptPage {
       this.csTotal = this.csTotal.toFixed(2);
       this.crTotal = this.crTotal.toFixed(2);
       this.Total = this.Total.toFixed(2);
-      loading.dismiss();
+      this.loading.dismiss();
     }, err => {
+
+      this.loading.dismiss();
       this.presentToast()
     });
 

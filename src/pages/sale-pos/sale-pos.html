@@ -16,16 +16,36 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding id="salePos">
   <form name="userform" id="form" #formCtrl="ngForm" (ngSubmit)="getSalesPosRpt(formCtrl)">
-    <ion-item>
-      <ion-label>From</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fromDateval" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
-    </ion-item>
-    <ion-item>
-      <ion-label>To</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="toDateval" name="toDate" ngModel #toDate="ngModel" id="toDate"></ion-datetime>
-    </ion-item>
+    <ion-item class="gridDatePicker">      
+      <ion-grid >
+          <ion-row>     
+            <ion-col col-7 align-self-center>
+                <label>From</label>
+              </ion-col>
+              <ion-col col-5 text-right>
+                  <ion-datepicker  [(value)]="fromDate"  clear class="ScheduleDate" (ionChanged)="dateFromChanged($event)">        
+                      <span>{{fromDate | date}} <ion-icon name="calendar" item-left ></ion-icon> </span>
+                    </ion-datepicker>
+                </ion-col>
+              </ion-row>
+              </ion-grid>     
+  </ion-item>
+  <ion-item class="gridDatePicker">      
+      <ion-grid >
+          <ion-row>     
+            <ion-col col-7 align-self-center>
+                <label>To</label>
+              </ion-col>
+              <ion-col col-5 text-right>
+                  <ion-datepicker  [(value)]="toDate"  clear class="ScheduleDate" (ionChanged)="dateToChanged($event)">        
+                      <span>{{toDate | date}} <ion-icon name="calendar" item-left ></ion-icon> </span>
+                    </ion-datepicker>
+                </ion-col>
+              </ion-row>
+              </ion-grid>     
+  </ion-item>
         <ion-item>     
             <ion-label></ion-label>
           <ion-select ngModel name="tonnage" #tonnage="ngModel" id="tonnage" [(ngModel)]="Tonnage">        
@@ -42,6 +62,6 @@
             <ion-option>Yard</ion-option>
           </ion-select>
         </ion-item>
-    <button ion-button type="submit" type="submit" block>Find</button>
+    <button ion-button type="submit" class="find-button" type="submit" block>Find</button>
   </form>
 </ion-content>

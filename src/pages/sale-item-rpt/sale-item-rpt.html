@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header id="salesRptheader">
+<ion-header id="salesRptHeader">
 
   <ion-navbar>
       <button ion-button menuToggle>
@@ -15,22 +15,22 @@
 <div class="header">
     <ion-grid>
         <ion-row>
-          <ion-col align-self-start col-4>
+          <ion-col align-self-start col-3>
             <div class="Item">
              Item
             </div>
           </ion-col>
-          <ion-col align-self-start col-2>
+          <ion-col align-self-start col-3>
             <div class="Mode">
               Mode
             </div>
           </ion-col>
-          <ion-col align-self-start col-3>
+          <ion-col align-self-start col-2>
             <div class="nl">
             NL
             </div>
           </ion-col>
-          <ion-col align-self-start col-3>
+          <ion-col align-self-start col-4>
             <div class="amount">
            Amount
             </div>
@@ -46,71 +46,71 @@
         <ion-item *ngFor="let Data of setData">
             <ion-grid>
                 <ion-row>
-                  <ion-col align-self-start col-4>
+                  <ion-col align-self-start col-3>
                     <div class="Item" text-wrap>
                         {{Data.MaterialName}}
                     </div>
                   </ion-col>
-                  <ion-col align-self-start col-2>
+                  <ion-col align-self-start col-3>
                     <div class="Mode">
                         {{Data.Mode}}
                     </div>
                   </ion-col>
-                  <ion-col align-self-start col-3>
+                  <ion-col align-self-start col-2>
                     <div class="nl">
                         {{Data.NL}}
                     </div>
                   </ion-col>
-                  <ion-col align-self-start col-3>
+                  <ion-col align-self-start col-4>
                     <div class="amount">
-                        {{Data.NetWt}}
+                        &#8377; {{Data.NetWt}}
                     </div>
                   </ion-col>
                 </ion-row>
               </ion-grid>   
               <ion-grid>
                   <ion-row>
-                    <ion-col align-self-start col-4>
+                    <ion-col align-self-start col-3>
                       <div class="Item">                         
                       </div>
                     </ion-col>
-                    <ion-col align-self-start col-2>
+                    <ion-col align-self-start col-3>
                       <div class="Mode">
                           {{Data.Mode2}}
                       </div>
                     </ion-col>
-                    <ion-col align-self-start col-3>
+                    <ion-col align-self-start col-2>
                       <div class="nl">
                           {{Data.NL2}}
                       </div>
                     </ion-col>
-                    <ion-col align-self-start col-3>
+                    <ion-col align-self-start col-4>
                       <div class="amount">
-                          {{Data.NetWt2}}
+                          &#8377; {{Data.NetWt2}}
                       </div>
                     </ion-col>
                   </ion-row>
                 </ion-grid> 
                 <ion-grid>
                     <ion-row>
-                      <ion-col align-self-start col-4>
+                      <ion-col align-self-start col-3>
                         <div class="Item">   
                           Total                      
                         </div>
                       </ion-col>
-                      <ion-col align-self-start col-2>
+                      <ion-col align-self-start col-3>
                         <div class="Mode">
                             {{Data.TotalMode}}
                         </div>
                       </ion-col>
-                      <ion-col align-self-start col-3>
+                      <ion-col align-self-start col-2>
                         <div class="nl">
                             {{Data.TotalNL}}
                         </div>
                       </ion-col>
-                      <ion-col align-self-start col-3>
+                      <ion-col align-self-start col-4>
                         <div class="amount">
-                            {{Data.TotalNetWt}}
+                            &#8377; {{Data.TotalNetWt}}
                         </div>
                       </ion-col>
                     </ion-row>
@@ -120,21 +120,48 @@
   
 </ion-content>
 
-<ion-footer  id="salesRpt">
+<ion-footer  id="salesRptFooter">
   <div class="total">
-    <ion-item>
+    <div class="subTotal">
+        <ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col align-self-center col-3>Cash Total
+                    </ion-col>
+                    <ion-col align-self-center col-3>             
+                    </ion-col>
+                    <ion-col align-self-center col-3> 
+                    </ion-col>
+                    <ion-col align-self-center col-3 text-right> &#8377;{{csTotal}}
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col align-self-center col-3>   Credit Total                   
+                        </ion-col>
+                        <ion-col align-self-center col-3>             
+                        </ion-col>
+                        <ion-col align-self-center col-3> 
+                        </ion-col>
+                        <ion-col align-self-center col-3 text-right> &#8377;{{crTotal}}
+                          </ion-col>
+                        </ion-row>                   
+
+                
+              </ion-grid>
+          
+        </ion-item>
+    </div>
+    <ion-item class="totalval">
         <ion-grid>
             <ion-row>
-            
-              <ion-col align-self-start col-4>
-                  Cash <ion-badge item-end>{{csTotal}}</ion-badge>
-              </ion-col>
-              <ion-col align-self-start col-4>
-                  Credit <ion-badge item-end>{{crTotal}}</ion-badge>
-              </ion-col>
-              <ion-col align-self-start col-4>
-                  Total <ion-badge item-end>{{Total}}</ion-badge>
-              </ion-col>
+                <ion-col align-self-center col-3>Total
+                </ion-col>
+                <ion-col align-self-center col-3>                  
+                </ion-col>
+                <ion-col align-self-center col-3>                   
+                </ion-col>
+                <ion-col align-self-center col-3 text-right>&#8377;{{Total}}</ion-col>            
+          
             </ion-row>
           </ion-grid>
       

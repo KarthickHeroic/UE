@@ -30,6 +30,12 @@ export class SalePosRptPage {
     this.crusher = navParams.get('crusher');
     this.getdata(this.fromDate.toLocaleDateString("en-US"), this.toDate.toLocaleDateString("en-US"), this.tonnage, this.crusher)
   }
+  loading = this.loadingCtrl.create({
+    content: 'Please wait...'
+  });
+  ionViewDidLeave(){
+    this.loading.dismiss();
+  }
   onSearch() {
     this.navCtrl.push(SalePosPage);
   }
@@ -45,16 +51,15 @@ export class SalePosRptPage {
     toast.present();
   }
   getdata(fromDate, toDate, tonnage, crusher) {
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
   
-    loading.present();  
+  
+    this.loading.present();  
     this.getData = [];
     this.service.getSalesPos(fromDate, toDate, tonnage, crusher).pipe(map(res => res)).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
       this.getData = JSON.parse(this.getData[0]);
+      console.log(this.getData);
       this.rTotal = 0;
       for (let i = 0; i < this.getData.length; i++) {
         if (this.getData[i]["NT"] != "") {
@@ -66,10 +71,10 @@ export class SalePosRptPage {
         this.rTotal = +this.total + +this.rTotal;
       }
       this.rTotal = this.rTotal.toFixed(2);
-      loading.dismiss();
+      this.loading.dismiss();
     }, error => {
       this.presentToast();
-
+      this.loading.dismiss();
     });
   }
 }

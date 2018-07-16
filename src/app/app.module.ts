@@ -15,6 +15,9 @@ import { IonicStorageModule } from '@ionic/storage';
 // Component Imports
 import { MyApp } from './app.component';
 
+// Third Party Imports
+import { DatePickerModule } from 'ion-datepicker';
+
 // Pages Imports
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from './../pages/login/login';
@@ -68,7 +71,8 @@ import { SalePosRptFilterPage } from '../pages/sale-pos-rpt-filter/sale-pos-rpt-
     MatGridListModule,
     HttpClientModule,
     MatDividerModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    DatePickerModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header id="SalesPosRptFilter">
+<ion-header id="SalesPosRptFilterHeader">
 
   <ion-navbar>
     <ion-title>Sales Position - {{ tonnage }}</ion-title>
@@ -41,22 +41,22 @@
             <ion-grid >
                 <ion-row>                    
                      <ion-col align-self-start col-3>
-                        <div class="listItem" text-wrap>
+                        <div class="itemTitle" text-left text-wrap>
                             {{Data.C0}}
                         </div>
                       </ion-col>
                   <ion-col align-self-start col-3>
-                    <div class="listItem" text-wrap>
+                    <div text-right  text-wrap>
                         {{Data.C1}}
                     </div>
                   </ion-col>
-                  <ion-col align-self-start col-3>
-                    <div class="listItem">
+                  <ion-col align-self-start text-right col-3>
+                    <div>
                         {{Data.C2}}
                     </div>
                   </ion-col>
-                  <ion-col align-self-start col-3>
-                    <div class="listItem">
+                  <ion-col align-self-start text-right col-3>
+                    <div>
                         {{Data.C3}}
                     </div>
                   </ion-col>
@@ -64,17 +64,24 @@
               </ion-grid> 
               </ion-item>
               </ion-list>
-
-
 </ion-content>
-<ion-footer>
+<ion-footer id="SalesPosRptFilterFooter">
     <div class="total">
       <ion-item>
-        <h2>Total</h2>
-        <p></p>
-        <ion-avatar item-end>
-          <ion-badge item-end>{{rTotal}}</ion-badge>
-        </ion-avatar>
+          <ion-grid >
+              <ion-row>                    
+                   <ion-col align-self-start col-7>
+                      <div text-left text-wrap class="totalTxt">
+                          Total
+                      </div>
+                    </ion-col>
+             <ion-col align-self-start text-right col-5>
+                  <div class="totalOut">
+                      {{rTotal}}
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
       </ion-item>
     </div>
   </ion-footer>

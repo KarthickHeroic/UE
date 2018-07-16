@@ -29,11 +29,15 @@ export class ShiftPosRptPage {
     this.site = navParams.get('site');
     this.getdata(this.fromDate.toLocaleDateString("en-US"), this.shift, this.site)
   }
-
+  loading = this.loadingCtrl.create({     
+    content: 'Loading Please Wait...'
+  });
   ionViewDidLoad() {
     // console.log('ionViewDidLoad RptGetShiftRptPage');
   }
-
+  ionViewDidLeave(){
+    this.loading.dismiss();
+  }
   presentToast() {
     let toast = this.toastCtrl.create({
       message: 'Server Error',
@@ -43,30 +47,24 @@ export class ShiftPosRptPage {
     toast.present();
   }
   getdata(fromDate, Shift, site) {
-    let loading = this.loadingCtrl.create({     
-      content: 'Loading Please Wait...'
-    });
-    loading.present();
+  
+    this.loading.present();
     this.getData = [];  
     this.service.getShiftPos(fromDate, Shift, site).pipe(map(res => res)).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
-      this.getData = JSON.parse(this.getData[0]);
-      console.log(this.getData);
-      
-      this.rTotal = 0;     
-      
+      this.getData = JSON.parse(this.getData[0]);   
+      this.rTotal = 0;           
         let amount1 = parseFloat(this.getData[0]["Amount1"]);
         let amount2 = parseFloat(this.getData[0]["Amount2"]);
-        this.total = amount1+amount2;
-        this.rTotal = this.total + this.rTotal;
-      
+        this.rTotal = amount1+amount2;
+        // this.rTotal = this.total + this.rTotal;      
       this.rTotal = this.rTotal.toFixed(3);
-      loading.dismiss();
-
+      this.loading.dismiss();
     },
     error => {
-      console.log(error)
+      console.log(error);
+      this.loading.dismiss();
       this.presentToast()
     });
 

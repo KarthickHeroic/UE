@@ -24,6 +24,10 @@ export class CashPosPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController,public loadingCtrl: LoadingController) {
     this.getdata('s');   
   }
+  
+  loading = this.loadingCtrl.create({
+    content: 'Please wait...'
+  });
 
   updateCss(){
     setTimeout(()=>{
@@ -45,7 +49,9 @@ export class CashPosPage {
    
   }
 
-
+  ionViewDidLeave(){
+    this.loading.dismiss();
+  }
 
   presentToast() {
     let toast = this.toastCtrl.create({
@@ -63,11 +69,8 @@ export class CashPosPage {
   getdata(sType) {
 
     this.getData = [];
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-  
-    loading.present();
+    
+    this.loading.present();
     this.service.getCash(sType).pipe(map(res => res)).subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
@@ -79,9 +82,10 @@ export class CashPosPage {
         this.alartarry.push(eachObj["UpStat"]);
       });
       this.updateCss();
-      loading.dismiss();
+      this.loading.dismiss();
     },
       err => {
+        this.loading.dismiss();
         this.presentToast()
       });
   }

@@ -7,24 +7,24 @@
 
 
 .mat-form-field-underline .mat-form-field-ripple{
-    background-color:#fff !important;
+    background-color:$themeColor !important;
 }
 .mat-form-field-underline{
-    background-color:#ccc !important;
+    background-color:#797979 !important;
 }
 
 .mat-form-field-placeholder{
 
-    color:#ccc;
+    color:#505050;
     font-weight: 100;
   }
   
 .mat-focused .mat-form-field-placeholder{
   
-    color:#fff;
+    color:#000;
   }
   .mat-input-element{
-      color:#fff !important;
+      color:#000 !important;
   }
 input.mat-input-element { 
     height: 20px !important;
@@ -32,10 +32,15 @@ input.mat-input-element {
 }
 .button-rpt
 {
+    
     margin-top: 20px !important;
     height: 50px !important;
     border-radius:0 !important; 
     background-color:$themeColor;
+    .mat-button-wrapper{
+        color:#fff;
+        font-size:20px; 
+    }
 }
 .logo{
     width: 30%;

@@ -1,5 +1,45 @@
 #salesPosRpt{
     .scroll-content{
-        margin-bottom: 100px !important;
+        margin-bottom: 0px !important;
        }
+       .item{
+           font-size: 13px;
+       }
+       .item-md.item-block .item-inner
+        {
+            padding-right: 0px;
+        }
+        .label-md{
+            margin: 0;
+        }
+        .siteText{
+            font-weight: 600;
+        }
+       
+}
+#salesPosRptHeader{
+
+    .header{
+        .item{
+            font-size: 17px;
+            font-weight: 600;
+        }
+       
+        .item-md.item-block .item-inner
+        {
+            padding-right: 0px!important;
+        }
+        
+        .label-md{
+            margin: 0;
+        }
+       }
+}
+#salesPosRptFooter{
+    .item{
+        font-size: 16px;
+    }
+    .amountText{
+        font-weight: 600;
+    }
 }

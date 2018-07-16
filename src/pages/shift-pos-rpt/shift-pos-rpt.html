@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header id="shift-rpt">
+<ion-header id="shiftReportHeader">
 
   <ion-navbar>
       <button ion-button menuToggle>
@@ -13,82 +13,94 @@
     <ion-title>Shift Production Report</ion-title>
   </ion-navbar>
   <div class="header">
-    <div class="tbheader">
-        <ion-item *ngFor="let Data of getData | slice:0:1;">
-        <ion-grid>
-            <ion-row class="title">
-                <ion-col align-self-start col-3>
-              {{Data.Title}}
-              </ion-col>
-              <ion-col align-self-start col-3>
+      <ion-grid>
+          <ion-row>
+            <ion-col align-self-start col-3>
+              Total
+            </ion-col>
+            <ion-col align-self-start col-3>
                 NL
-                  </ion-col>
-                  <ion-col align-self-start col-3 text-right>
-                     TON
-                      </ion-col>
-                      <ion-col align-self-start col-3 text-right>
-                         Amount
-                          </ion-col>
-
-            </ion-row>
-            <ion-row>
-              <ion-col align-self-start col-3>
-                <div class="Mode">
-                 {{Data.Mode1}}
-                </div>
-              </ion-col>
-              <ion-col align-self-start col-3>
-                <div class="nl">
-                  {{Data.NL1}}
-                </div>
-              </ion-col>
-              <ion-col align-self-start col-3>
-                <div class="ton">
-                {{Data.Ton1}}
-                </div>
-              </ion-col>
-              <ion-col align-self-start col-3>
-                <div class="amount">
-               {{Data.Amount1}}
-                </div>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col align-self-start col-3>
-                  <div class="Mode">
-                   {{Data.Mode2}}
-                  </div>
-                </ion-col>
-                <ion-col align-self-start col-3>
-                  <div class="nl">
-                    {{Data.NL2}}
-                  </div>
-                </ion-col>
-                <ion-col align-self-start col-3>
-                  <div class="ton">
-                  {{Data.Ton2}}
-                  </div>
-                </ion-col>
-                <ion-col align-self-start col-3>
-                  <div class="amount">
-                 {{Data.Amount2}}
-                  </div>
-                </ion-col>
-              </ion-row>
-          </ion-grid>  
-        </ion-item>
-    </div>      
-
+            </ion-col>  
+            <ion-col align-self-start col-3>
+                TON
+            </ion-col>  
+            <ion-col align-self-start col-3 text-right>
+                Amount
+            </ion-col>  
+          </ion-row>
+        </ion-grid> 
   </div>
+
+
+
+
 </ion-header>
 
 
-<ion-content id="shift-rpt">
+<ion-content id="shiftReport">
     <ion-list>
+      <div class="totalHeader">
+          <ion-item *ngFor="let Data of getData | slice:0:1;">
+              <ion-grid>
+                  <ion-row class="titleVal">
+                      <ion-col align-self-start col-12>
+                      {{Data.Title}}
+                      </ion-col>
+                  </ion-row>
+                  <ion-row>
+                      <ion-col align-self-start col-3>
+                        <div class="Mode">
+                         {{Data.Mode1}}
+                        </div>
+                      </ion-col>
+                      <ion-col align-self-start col-3>
+                        <div class="nl">
+                          {{Data.NL1}}
+                        </div>
+                      </ion-col>
+                      <ion-col align-self-start col-3>
+                        <div class="ton" >
+                        {{Data.Ton1}}
+                        </div>
+                      </ion-col>
+                      <ion-col align-self-start col-3>
+                        <div class="amount" text-right>
+                            &#8377; {{Data.Amount1}}
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col align-self-start col-3>
+                          <div class="Mode">
+                           {{Data.Mode2}}
+                          </div>
+                        </ion-col>
+                        <ion-col align-self-start col-3>
+                          <div class="nl" >
+                            {{Data.NL2}}
+                          </div>
+                        </ion-col>
+                        <ion-col align-self-start col-3>
+                          <div class="ton">
+                          {{Data.Ton2}}
+                          </div>
+                        </ion-col>
+                        <ion-col align-self-start col-3>
+                          <div class="amount" text-right>
+                              &#8377; {{Data.Amount2}}
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                  </ion-grid>
+                  </ion-item>
+      </div>
+        
         <ion-item *ngFor="let Data of getData | slice:1:10;">
     <ion-grid>
         <ion-row class="titleVal">
+            <ion-col align-self-start col-12>
             {{Data.Title}}
+            </ion-col>
         </ion-row>
         <ion-row>
             <ion-col align-self-start col-3>
@@ -96,8 +108,8 @@
                {{Data.Mode1}}
               </div>
             </ion-col>
-            <ion-col align-self-start col-3>
-              <div class="nl">
+            <ion-col align-self-start col-3 >
+              <div class="nl" >
                 {{Data.NL1}}
               </div>
             </ion-col>
@@ -107,8 +119,8 @@
               </div>
             </ion-col>
             <ion-col align-self-start col-3>
-              <div class="amount">
-             {{Data.Amount1}}
+              <div class="amount" text-right>
+                  &#8377; {{Data.Amount1}}
               </div>
             </ion-col>
           </ion-row>
@@ -129,8 +141,8 @@
                 </div>
               </ion-col>
               <ion-col align-self-start col-3>
-                <div class="amount">
-               {{Data.Amount2}}
+                <div class="amount" text-right>
+                    &#8377; {{Data.Amount2}}
                 </div>
               </ion-col>
             </ion-row>
@@ -140,14 +152,20 @@
         </ion-content>
 
 
-<ion-footer>
+<ion-footer id="shiftReportFooter">
   <div class="total">
+    
     <ion-item>
-      <h2>Total</h2>
-      <p></p>
-      <ion-avatar item-end>
-        <ion-badge item-end>{{rTotal}}</ion-badge>
-      </ion-avatar>
-    </ion-item>
+        <ion-grid>
+            <ion-row class="totalVal">
+                <ion-col align-self-start col-9>
+                  Total
+                  </ion-col>
+                  <ion-col align-self-start col-3>
+                      &#8377; {{rTotal}}
+                    </ion-col>
+                  </ion-row>
+                  </ion-grid>
+                  </ion-item>
   </div>
 </ion-footer>

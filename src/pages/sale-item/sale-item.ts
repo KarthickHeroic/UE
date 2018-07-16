@@ -1,7 +1,8 @@
 import { SaleItemRptPage } from './../sale-item-rpt/sale-item-rpt';
-import { Component, OnInit } from '@angular/core';
+import { Component,  ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import { ServicesProvider } from './../../providers/services/services';
+import { DatePickerDirective } from 'ion-datepicker';
 
 /**
  * Generated class for the SaleItemPage page.
@@ -15,20 +16,29 @@ import { ServicesProvider } from './../../providers/services/services';
   selector: 'page-sale-item',
   templateUrl: 'sale-item.html',
 })
-export class SaleItemPage implements OnInit {
+
+export class SaleItemPage {
+  @ViewChild(DatePickerDirective) public datepicker: DatePickerDirective;
+  public fromDate: Date = new Date();  
+  
+  public toDate: Date = new Date();
+  public initDate: Date = new Date();  
   alertTitle;
   alertSubtitle;
-  fromDateval = new Date().toISOString()
-  toDateval = new Date().toISOString();
-
+  // fromDateval = new Date().toISOString()
+  // toDateval = new Date().toISOString();
+  // fromDate;
+  // toDate;
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public service: ServicesProvider) {
+  this.fromDate.setDate(this.fromDate.getDate()-1);
+  this.toDate.setDate(this.toDate.getDate()-1);
   }
-  ngOnInit(){
-  
-  }
+  public closeDatepicker(){
+    this.datepicker.modal.dismiss();
+}
 
-  ionViewDidLoad() {    
 
+  ionViewDidLoad() {       
     console.log('ionViewDidLoad RptItemSalesPage');
   }
   rpt = {}
@@ -39,6 +49,14 @@ export class SaleItemPage implements OnInit {
       site: site
     });
   }
+
+  dateFromChanged(date){
+this.fromDate=date;
+  }
+  dateToChanged(date){
+    this.toDate=date;
+      }
+    
 
 
   presentAlert() {
@@ -54,8 +72,8 @@ export class SaleItemPage implements OnInit {
 
     if (rpt.value.fromDate != "") {
       if (rpt.value.toDate != "") {
-        if (rpt.value.site != "") {
-          this.getReport(rpt.value.fromDate, rpt.value.toDate, rpt.value.site);
+        if (rpt.value.site != "") {   
+          this.getReport( this.fromDate, this.toDate, rpt.value.site,);
         }
         else {
           this.alertTitle = "Site"

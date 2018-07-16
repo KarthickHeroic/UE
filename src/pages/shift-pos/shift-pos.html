@@ -15,12 +15,22 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding id="shiftPos">
   <form name="userform" id="form" #formCtrl="ngForm" (ngSubmit)="getShiftRpt(formCtrl)">
-    <ion-item>
-      <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY"[(ngModel)]="fromDateval" name="fromDate" ngModel #fromDate="ngModel" id="fromDate"></ion-datetime>
-    </ion-item>
+    <ion-item class="gridDatePicker">      
+      <ion-grid >
+          <ion-row>     
+            <ion-col col-7 align-self-center>
+                <label>From</label>
+              </ion-col>
+              <ion-col col-5 text-right>
+                  <ion-datepicker  [(value)]="fromDate"  clear class="ScheduleDate" (ionChanged)="dateFromChanged($event)">        
+                      <span>{{fromDate | date}} <ion-icon name="calendar" item-left ></ion-icon> </span>
+                    </ion-datepicker>
+                </ion-col>
+              </ion-row>
+              </ion-grid>     
+  </ion-item> 
     <ion-item>
       <ion-label>Shift</ion-label>
       <ion-select ngModel name="Shift" #Shift="ngModel" id="Shift"  [(ngModel)]="All">
@@ -40,7 +50,7 @@
           <ion-option>DSBM III</ion-option>         
       </ion-select>
     </ion-item>
-    <button ion-button type="submit" type="submit" block>Find</button>
+    <button ion-button class="find-button" type="submit" type="submit" block>Find</button>
   </form>
 
 </ion-content>

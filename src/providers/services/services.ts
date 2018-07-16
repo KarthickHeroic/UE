@@ -15,14 +15,14 @@ export class ServicesProvider {
   }
 
   getCash(SType) {
-    let url = "http://192.168.1.150/GenIt/GenData.asmx/GetCash";
+    let url = "http://49.207.180.49/GenIt/GenData.asmx/GetCash";
     let Params = new HttpParams();
     Params = Params.append('SType', SType);
     return this.http.get(url, { params: Params, responseType: 'text' });
   }
 
   getItemSales(fromDate, toDate, site) {
-    let url = "http://192.168.1.150/GenIT/GenData.asmx/GetIS";
+    let url = "http://49.207.180.49/GenIT/GenData.asmx/GetIS";
     let Params = new HttpParams();
     Params = Params.append('FDate', fromDate);
     Params = Params.append('TDate', toDate);
@@ -31,7 +31,7 @@ export class ServicesProvider {
   }
 
   getShiftPos(fromDate, Shift, site) {
-    let url = "http://192.168.1.150/GenIT/GenData.asmx/GetSP";
+    let url = "http://49.207.180.49/GenIT/GenData.asmx/GetSP";
     let Params = new HttpParams();
     Params = Params.append('FDate', fromDate);
     Params = Params.append('Shift', Shift);
@@ -40,7 +40,7 @@ export class ServicesProvider {
   }
 
   getSalesPos(fromDate, toDate, tonnage, crusher) {
-    let url = "http://192.168.1.150/GenIT/GenData.asmx/LoadSP";
+    let url = "http://49.207.180.49/GenIT/GenData.asmx/LoadSP";
     let Params = new HttpParams();
     Params = Params.append('FDate', fromDate);
     Params = Params.append('TDate', toDate);
@@ -51,12 +51,12 @@ export class ServicesProvider {
 
   getFuel() {
 
-    let url = "http://192.168.1.150/GenIt/GenData.asmx/LoadFStock";
+    let url = "http://49.207.180.49/GenIt/GenData.asmx/LoadFStock";
     return this.http.get(url, { responseType: 'text', withCredentials: true });
   }
 
   getVehicle() {
-    let url = "http://192.168.1.150/GenIt/GenData.asmx/LoadVD";
+    let url = "http://49.207.180.49/GenIt/GenData.asmx/LoadVD";
     return this.http.get(url, { responseType: 'text' });
   }
 
