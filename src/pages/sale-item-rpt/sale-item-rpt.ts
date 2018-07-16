@@ -24,6 +24,9 @@ export class SaleItemRptPage {
   csTotal;
   crTotal;  
   Total;
+  nlTotal;
+  csNL;
+  crNL;
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, public http: HttpClient, private toastCtrl: ToastController, public loadingCtrl: LoadingController) {
     this.fromDate = new Date(navParams.get('fromDate'));
     this.toDate = new Date(navParams.get('toDate'));
@@ -102,22 +105,30 @@ loading = this.loadingCtrl.create({
       this.csTotal = 0;
       this.crTotal = 0;     
       this.Total = 0; 
-      for (let i = 0; i < this.setData.length; i++) {
-        let total1 = parseFloat(this.setData[i]["NetWt"]);
-        this.csTotal = total1 + this.csTotal;
+      this.nlTotal=0;
+      this.csNL=0;
+      this.crNL = 0;
 
-        let total2 = parseFloat(this.setData[i]["NetWt2"]);
-        this.crTotal = total2 + this.crTotal;
+        for (let i = 0; i < this.setData.length; i++) {
+        let total1 = parseFloat(  this.setData[i]["NetWt"]).toFixed(3);
+        this.csTotal = +total1 + +this.csTotal;
+        let total2 = parseFloat(this.setData[i]["NetWt2"]).toFixed(3);
+        this.crTotal = +total2 + +this.crTotal;
+        let total = parseFloat(this.setData[i]["TotalNetWt"]).toFixed(3);      
+        this.Total = +total + +this.Total;
 
-        let total = parseFloat(this.setData[i]["TotalNetWt"]);
-        this.Total = total + this.Total;
+
+          let nl1 = parseInt(this.setData[i]["NL"]);
+          this.csNL = +nl1 + +this.csNL
+          let nl2 = parseInt(this.setData[i]["NL2"]);
+          this.crNL = +nl2 + +this.crNL
+        this.nlTotal = this.nlTotal + parseFloat(this.setData[i]["TotalNL"]);
       }
-      this.csTotal = this.csTotal.toFixed(2);
-      this.crTotal = this.crTotal.toFixed(2);
-      this.Total = this.Total.toFixed(2);
+      // this.csTotal = this.csTotal.toFixed(3);
+      // this.crTotal = this.crTotal.toFixed(3);
+      // this.Total = this.Total.toFixed(3);
       this.loading.dismiss();
     }, err => {
-
       this.loading.dismiss();
       this.presentToast()
     });

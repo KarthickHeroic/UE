@@ -32,7 +32,7 @@
           </ion-col>
           <ion-col align-self-start col-4>
             <div class="amount">
-           Amount
+           Tonnage
             </div>
           </ion-col>
         </ion-row>
@@ -63,7 +63,7 @@
                   </ion-col>
                   <ion-col align-self-start col-4>
                     <div class="amount">
-                        &#8377; {{Data.NetWt}}
+                         {{Data.NetWt}}
                     </div>
                   </ion-col>
                 </ion-row>
@@ -86,7 +86,7 @@
                     </ion-col>
                     <ion-col align-self-start col-4>
                       <div class="amount">
-                          &#8377; {{Data.NetWt2}}
+                           {{Data.NetWt2}}
                       </div>
                     </ion-col>
                   </ion-row>
@@ -110,7 +110,7 @@
                       </ion-col>
                       <ion-col align-self-start col-4>
                         <div class="amount">
-                            &#8377; {{Data.TotalNetWt}}
+                            {{Data.TotalNetWt}}
                         </div>
                       </ion-col>
                     </ion-row>
@@ -126,23 +126,21 @@
         <ion-item>
             <ion-grid>
                 <ion-row>
-                    <ion-col align-self-center col-3>Cash Total
+                    <ion-col align-self-center col-6>Cash Total
                     </ion-col>
-                    <ion-col align-self-center col-3>             
+                   
+                    <ion-col align-self-center col-2 text-right> {{csNL}}
                     </ion-col>
-                    <ion-col align-self-center col-3> 
-                    </ion-col>
-                    <ion-col align-self-center col-3 text-right> &#8377;{{csTotal}}
+                    <ion-col align-self-center col-4 text-right>{{csTotal}}
                       </ion-col>
                     </ion-row>
                     <ion-row>
-                        <ion-col align-self-center col-3>   Credit Total                   
+                        <ion-col align-self-center col-6>   Credit Total                   
                         </ion-col>
-                        <ion-col align-self-center col-3>             
+                    
+                        <ion-col align-self-center col-2 text-right> {{crNL}}
                         </ion-col>
-                        <ion-col align-self-center col-3> 
-                        </ion-col>
-                        <ion-col align-self-center col-3 text-right> &#8377;{{crTotal}}
+                        <ion-col align-self-center col-4 text-right>{{crTotal}}
                           </ion-col>
                         </ion-row>                   
 
@@ -154,13 +152,12 @@
     <ion-item class="totalval">
         <ion-grid>
             <ion-row>
-                <ion-col align-self-center col-3>Total
+                <ion-col align-self-center col-6>Total
                 </ion-col>
-                <ion-col align-self-center col-3>                  
+              
+                <ion-col align-self-center col-2 text-right> {{nlTotal}}                  
                 </ion-col>
-                <ion-col align-self-center col-3>                   
-                </ion-col>
-                <ion-col align-self-center col-3 text-right>&#8377;{{Total}}</ion-col>            
+                <ion-col align-self-center col-4 text-right>{{Total}}</ion-col>            
           
             </ion-row>
           </ion-grid>

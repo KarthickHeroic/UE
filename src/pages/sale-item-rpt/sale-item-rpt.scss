@@ -54,8 +54,7 @@
     .list-md .item-block .item-inner{
         padding: 0;
     }
-    
-   
+  
    
 }
 #salesRptHeader{
@@ -109,12 +108,12 @@
     }
     .totalval
         {
-            font-size: 18px;
+            font-size: 17px;
             z-index: 10;
             ion-grid{
                 ion-row{
                     ion-col:last-child{
-                        font-size: 22px;
+                        font-size: 20px;
                         font-weight: 600;
                     }
                 }

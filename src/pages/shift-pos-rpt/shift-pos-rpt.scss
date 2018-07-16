@@ -4,12 +4,12 @@
 }
 #shiftReport{
     .item{
-        font-size: 15px;
+        font-size: 14px;
     }
     .totalHeader{
         
         .item{
-            font-size: 15px;
+            font-size: 14px;
         font-weight: 600;
             background-color:#b5b5b5;
            
@@ -29,6 +29,7 @@ font-size: 12px;
 }
 .titleVal{
     background-color: #e2e2e2;
+    font-weight: 600;
 }
 .list-md .item-block .item-inner{
     padding-right:0px; 
@@ -39,89 +40,14 @@ ion-grid{
 
 }
 #shiftReportFooter{
+    .total{
+        .item-md.item-block .item-inner{
+            padding-right: 0px;
+        }
+    }
     .totalVal{
         font-size: 17px;
         font-weight: 600;
     }
 
 }
-// #shift-rpt{
-//     .scroll-content{
-//         margin-top: 140px;
-//     }
-//     ion-grid{
-//         padding: 0px;
-//         font-size: 13px;
-//         color: #505050;
-//     }
-//     .item{
-//         padding: 0;
-//     }
-  
-//     .item-md.item-block .item-inner{
-//         padding: 0px;
-//     }
-//     .label-md{
-//         margin:5px 5px 2px 5px;
-//     }
-//     .ton{
-//         text-align: right;
-//             }
-//             .amount{
-//                 text-align: right;
-//             }
-//             .header{       
-//                 height: 75px;
-//                 background-color:#ccc;
-//                 ion-grid{
-//                     font-size: 13px;
-//                     color: #232222;
-//                 }
-//                 .title{
-//                     background-color:#ccc; 
-//                     height: 25px;
-//                     line-height: 25px;
-//                     padding-left:5px ;
-//                     padding-right: 5px;
-//                     color:#000000;
-//                     .col{
-//                         margin: 0px;
-//                         padding: 0px;
-//                     }
-//                 }
-//                 .label-md {
-//                     margin: 0;
-//                 }
-//                 .item-block{
-//                     background-color: #eaeaea;
-//                     min-height: 31px;
-//                 }
-//                 .tbheader{
-//                     background-color:#ccc;
-//                     padding:0;
-//                     .itemTitle{
-//                         text-align: left;
-//                     }
-//                     .ton{
-//                         text-align: right;
-//                     }
-//                 }
-               
-//             }
-
-//             .titleVal{
-//                 background-color: #ebeaf1;
-//                 height: 20px;
-//                 line-height: 20px;
-//                 padding-left:5px ;
-//                 color:#000000;
-//             }
-//            .label-md {
-//                 margin: 0;               
-//             }
-//             .scroll-content{
-//                 margin-top: 135px !important;
-//             }
-// }
-
-
