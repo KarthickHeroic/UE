@@ -35,7 +35,9 @@ export class SalePosRptFilterPage {
   setData = [];
   jsonHead={};
   total;
-  rTotal;
+  TotalSite1;
+  TotalSite2;
+  TotalSite3;
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController, public loadingCtrl: LoadingController
   ) {
 
@@ -51,13 +53,7 @@ export class SalePosRptFilterPage {
     content: 'Please wait...'
   }); 
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad SalesPosRptPage');
-    // this.navBar.backButtonClick = (e:UIEvent)=>{
-    //   // todo something
-    //   console.log("test");
-      
-    //   //this.loading.dismiss();
-    //  }
+
   }
   
   ionViewDidLeave(){
@@ -82,19 +78,43 @@ export class SalePosRptFilterPage {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
       this.getData = JSON.parse(this.getData[0]);    
-      this.rTotal = 0;
+      this.TotalSite1 = 0;
+      this.TotalSite2 = 0;
+      this.TotalSite3 = 0;
       console.log(this.getData);
-      
+   
+     
       for (let i = 1; i < this.getData.length; i++) {
+        let C1Total;
+        let C2Total;
+        let C3Total;
         if (this.getData[i]["C0"]!= "Net Total") {
-          this.total = this.getData[i]["C3"];
+          C1Total = this.getData[i]["C1"];
+          C2Total = this.getData[i]["C2"];
+          C3Total = this.getData[i]["C3"];
         }
         else {
-          this.total = '0.00';
+          C1Total = '0.00';
+          C2Total = '0.00';
+          C3Total = '0.00';
         }
-        this.rTotal = +this.total + +this.rTotal;
+        this.TotalSite1 = +C1Total + +this.TotalSite1;
+        this.TotalSite2 = +C2Total + +this.TotalSite2;
+        this.TotalSite3 = +C3Total + +this.TotalSite3;
       }
-      this.rTotal = this.rTotal.toFixed(2);
+      this.TotalSite1 = this.TotalSite1.toFixed(3);
+      this.TotalSite2 = this.TotalSite2.toFixed(3);
+      this.TotalSite3 = this.TotalSite3.toFixed(3);
+     
+      if(this.tonnage=="Amount")
+      {
+        for (let i = 0; i < 1; i++) {
+          this.getData[i]["C1"] = "₹" + this.getData[i]["C1"];
+          this.getData[i]["C2"] = "₹" + this.getData[i]["C2"];
+          this.getData[i]["C3"] = "₹" + this.getData[i]["C3"];
+        }       
+      }
+      
        this.loading.dismiss();
 
     }, err => {

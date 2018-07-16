@@ -65,6 +65,8 @@
   #SalesPosRptFilterHeader
   {
     .header {
+      height: 56px;
+      
         background-color: #ffffff;
         .list-md {
           margin: 0px;
@@ -83,16 +85,20 @@
         .item:last-child {
           padding-right: 10px;
         }
-        .head {
+        .grid {
           height: 35px;
-          font-size: 15px;
+          font-size: 17px;
           font-weight: 600;
-          line-height: 35px;
+          line-height: 45px;
           text-align: right;
+          padding: 0px;
           padding-right: 5px;
         }
         ion-grid {
           ion-row {
+            ion-col{
+              padding-right: 0px;
+            }
             ion-col:last-child {
               .head {
                 padding-right: 15px
@@ -104,6 +110,16 @@
   }
 
   #SalesPosRptFilterFooter{
+    .item-md{
+      padding-left: 0px;
+    }
+    .item-md.item-block .item-inner{
+      padding-right:0px; 
+      height: 55px;
+    }
+    .grid{
+      padding: 0px;
+    }
     .totalTxt{
         font-size: 17px;
               }

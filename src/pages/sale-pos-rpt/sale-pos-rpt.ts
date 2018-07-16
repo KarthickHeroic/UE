@@ -21,7 +21,13 @@ export class SalePosRptPage {
   crusher;
   getData = [];
   total;
+  csTotal;
+  crTotal;
   rTotal;
+  headTotal="Total";
+  Cash="Cash";
+  Credit="Credit";
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController,public loadingCtrl: LoadingController
   ) {
     this.fromDate = new Date(navParams.get('fromDate'));
@@ -59,18 +65,55 @@ export class SalePosRptPage {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
       this.getData = JSON.parse(this.getData[0]);
-      console.log(this.getData);
       this.rTotal = 0;
+      this.csTotal = 0;
+      this.crTotal = 0;      
       for (let i = 0; i < this.getData.length; i++) {
+        let cstotal;
+        let crtotal;
         if (this.getData[i]["NT"] != "") {
-          this.total = parseFloat(this.getData[i]["NT"]);
+          this.total = parseFloat(this.getData[i]["NT"]).toFixed(3);
         }
         else {
           this.total = '0.00';
         }
+        if (this.getData[i]["CS"] != "") {
+          cstotal = parseFloat(this.getData[i]["CS"]).toFixed(3);
+        }
+        else {
+          cstotal = '0.00';
+        }
+        if (this.getData[i]["CR"] != "") {
+          crtotal = parseFloat(this.getData[i]["CR"]).toFixed(3);
+        }
+        else {
+          crtotal = '0.00';
+        }
+        
         this.rTotal = +this.total + +this.rTotal;
+        this.csTotal = +cstotal + +this.csTotal;
+        this.crTotal = +crtotal + +this.crTotal;
       }
-      this.rTotal = this.rTotal.toFixed(2);
+
+      if(this.tonnage=="Amount")
+      {
+        this.headTotal="₹ Total";
+        this.Cash="₹ Cash";
+        this.Credit="₹ Credit";
+        this.rTotal = this.rTotal.toFixed(2);
+        this.crTotal = this.crTotal.toFixed(2);
+        this.csTotal = this.csTotal.toFixed(2);
+      }
+      else
+      {
+        this.headTotal="Total";
+        this.Cash="Cash";
+        this.Credit="Credit";
+        this.rTotal = this.rTotal.toFixed(3);
+        this.crTotal = this.crTotal.toFixed(3);
+        this.csTotal = this.csTotal.toFixed(3);
+      }
+     
       this.loading.dismiss();
     }, error => {
       this.presentToast();

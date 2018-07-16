@@ -4,15 +4,6 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-
-
-<!-- 
-   Sales Pos All - rupees symbol remove right align 
-   Total - cash credit 
-   Sa tonnage - Amount symbol
-
- -->
-
 <ion-header id="salesPosRptHeader">
 
   <ion-navbar>
@@ -20,7 +11,7 @@
         <ion-icon name="menu"></ion-icon>
 
       </button>
-    <ion-title>Sale Position Report
+    <ion-title>Sale Position All - {{tonnage}}
                 <!-- <ion-icon item-end name="search" class="refresh-icon" (click)="onSearch()"></ion-icon> -->
     </ion-title>
   </ion-navbar>
@@ -32,14 +23,14 @@
                 <ion-col align-self-start col-2>
                   Site
                   </ion-col>
-                  <ion-col align-self-start col-3>
-                    Cash
+                  <ion-col align-self-start col-3 text-right>
+                    {{Cash}}
                     </ion-col>
-                    <ion-col align-self-start col-3>
-                      Credit
+                    <ion-col align-self-start col-3 text-right>
+                      {{Credit}}
                       </ion-col>
                       <ion-col align-self-start text-right col-4>
-                        Total
+                        {{headTotal}}
                         </ion-col>
                   </ion-row>
             </ion-grid>
@@ -56,14 +47,14 @@
                               <ion-col align-self-start col-2 class="siteText">
                                   {{Data.SN}}
                                 </ion-col>
-                                <ion-col align-self-start col-3>
+                                <ion-col align-self-start col-3 text-right>
                                     {{Data.CS}}
                                   </ion-col>
-                                  <ion-col align-self-start col-3>
+                                  <ion-col align-self-start col-3 text-right>
                                       {{Data.CR}}
                                     </ion-col>
                                     <ion-col align-self-start col-4 text-right class="siteText">
-                                        &#8377; {{Data.NT}}
+                                        {{Data.NT}}
                                       </ion-col>
                                 </ion-row>
                                 </ion-grid>
@@ -74,12 +65,18 @@
       <ion-item>
           <ion-grid>
               <ion-row>
-                <ion-col align-self-start col-7>
+                <ion-col align-self-start col-2>
                   Total
                   </ion-col>
-                  <ion-col align-self-start col-5 text-right class="amountText">
-                      &#8377; {{rTotal}}
+                  <ion-col align-self-start col-3 text-right class="amountText">
+                     {{csTotal}}
                     </ion-col>
+                    <ion-col align-self-start col-3 text-right class="amountText">
+                      {{crTotal}}
+                     </ion-col>
+                     <ion-col align-self-start col-4 text-right class="amountText totalText">
+                      {{rTotal}}
+                     </ion-col>
                   </ion-row>
                   </ion-grid>
                   </ion-item>

@@ -13,20 +13,15 @@
     <ion-grid>
         <ion-row>
           <ion-col align-self-start col-3></ion-col>
-          <ion-col align-self-start col-3  *ngFor="let Data of getData | slice:0:1;">
-            <div class="head">
-             {{Data.C1}} 
-            </div>
+          <ion-col align-self-start col-3 text-right *ngFor="let Data of getData | slice:0:1;">           
+             {{Data.C1}}             
           </ion-col>  
-          <ion-col align-self-start col-3  *ngFor="let Data of getData | slice:0:1;">
-            <div class="head">
-             {{Data.C2}} 
-            </div>
+          <ion-col align-self-start col-3 text-right  *ngFor="let Data of getData | slice:0:1;">           
+             {{Data.C2}}             
           </ion-col>  
-          <ion-col align-self-start col-3  *ngFor="let Data of getData | slice:0:1;">
-            <div class="head">
+                    <ion-col align-self-start col-3 text-right  *ngFor="let Data of getData | slice:0:1;">           
              {{Data.C3}} 
-            </div>
+            
           </ion-col>  
         </ion-row>
       </ion-grid> 
@@ -70,15 +65,19 @@
       <ion-item>
           <ion-grid >
               <ion-row>                    
-                   <ion-col align-self-start col-7>
+                   <ion-col align-self-start col-3>
                       <div text-left text-wrap class="totalTxt">
                           Total
                       </div>
                     </ion-col>
-             <ion-col align-self-start text-right col-5>
-                  <div class="totalOut">
-                      {{rTotal}}
-                  </div>
+                    <ion-col align-self-start text-right col-3>
+                      {{TotalSite1}}
+                    </ion-col>
+                    <ion-col align-self-start text-right col-3>
+                      {{TotalSite2}}
+                    </ion-col>
+                    <ion-col align-self-start text-right col-3>               
+                    {{TotalSite3}}                  
                 </ion-col>
               </ion-row>
             </ion-grid>
