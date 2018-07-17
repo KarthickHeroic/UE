@@ -22,7 +22,7 @@ export class CashPosPage {
   alartarry =[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController,public loadingCtrl: LoadingController) {
-    this.getdata('s');   
+    this.getdata('S');   
   }
   
   loading = this.loadingCtrl.create({
@@ -63,7 +63,7 @@ export class CashPosPage {
   }
 
   refresh() {
-    this.getdata("r");
+    this.getdata("R");
   }
 
   getdata(sType) {

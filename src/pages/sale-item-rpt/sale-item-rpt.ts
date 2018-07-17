@@ -124,9 +124,9 @@ loading = this.loadingCtrl.create({
           this.crNL = +nl2 + +this.crNL
         this.nlTotal = this.nlTotal + parseFloat(this.setData[i]["TotalNL"]);
       }
-      // this.csTotal = this.csTotal.toFixed(3);
-      // this.crTotal = this.crTotal.toFixed(3);
-      // this.Total = this.Total.toFixed(3);
+      this.csTotal = this.csTotal.toFixed(3);
+      this.crTotal = this.crTotal.toFixed(3);
+      this.Total = this.Total.toFixed(3);
       this.loading.dismiss();
     }, err => {
       this.loading.dismiss();

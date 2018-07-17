@@ -20,6 +20,7 @@ export class ShiftPosRptPage {
   site;
   total;
   rTotal;
+  NLTotal;
   getData = [];
 
 
@@ -58,6 +59,12 @@ export class ShiftPosRptPage {
         let amount1 = parseFloat(this.getData[0]["Amount1"]);
         let amount2 = parseFloat(this.getData[0]["Amount2"]);
         this.rTotal = amount1+amount2;
+
+        let Nl1 = parseFloat(this.getData[0]["NL1"]);
+        let Nl2 = parseFloat(this.getData[0]["NL2"]);
+        this.rTotal = amount1+amount2;
+        this.NLTotal = Nl1+Nl2;
+        
         // this.rTotal = this.total + this.rTotal;      
       this.rTotal = this.rTotal.toFixed(3);
       this.loading.dismiss();

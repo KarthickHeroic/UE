@@ -84,7 +84,7 @@ export class SalePosRptFilterPage {
       console.log(this.getData);
    
      
-      for (let i = 1; i < this.getData.length; i++) {
+      for (let i = 4; i < this.getData.length; i++) {
         let C1Total;
         let C2Total;
         let C3Total;
@@ -102,9 +102,7 @@ export class SalePosRptFilterPage {
         this.TotalSite2 = +C2Total + +this.TotalSite2;
         this.TotalSite3 = +C3Total + +this.TotalSite3;
       }
-      this.TotalSite1 = this.TotalSite1.toFixed(3);
-      this.TotalSite2 = this.TotalSite2.toFixed(3);
-      this.TotalSite3 = this.TotalSite3.toFixed(3);
+     
      
       if(this.tonnage=="Amount")
       {
@@ -112,7 +110,16 @@ export class SalePosRptFilterPage {
           this.getData[i]["C1"] = "₹" + this.getData[i]["C1"];
           this.getData[i]["C2"] = "₹" + this.getData[i]["C2"];
           this.getData[i]["C3"] = "₹" + this.getData[i]["C3"];
-        }       
+        }  
+        this.TotalSite1 = this.TotalSite1.toFixed(2);
+        this.TotalSite2 = this.TotalSite2.toFixed(2);
+        this.TotalSite3 = this.TotalSite3.toFixed(2);     
+      }
+      else
+      {
+        this.TotalSite1 = this.TotalSite1.toFixed(3);
+        this.TotalSite2 = this.TotalSite2.toFixed(3);
+        this.TotalSite3 = this.TotalSite3.toFixed(3);
       }
       
        this.loading.dismiss();
