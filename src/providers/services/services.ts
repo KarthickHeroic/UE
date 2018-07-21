@@ -18,7 +18,7 @@ export class ServicesProvider {
     let url = "http://49.207.180.49/GenIt/GenData.asmx/GetCash";
     let Params = new HttpParams();
     Params = Params.append('SType', SType);
-    return this.http.get(url, { params: Params, responseType: 'text' });
+    return this.http.get(url, { params: Params, responseType: 'text' })
   }
 
   getItemSales(fromDate, toDate, site) {

@@ -21,6 +21,7 @@ export class ShiftPosRptPage {
   total;
   rTotal;
   NLTotal;
+  tonTotal
   getData = [];
 
 
@@ -31,7 +32,7 @@ export class ShiftPosRptPage {
     this.getdata(this.fromDate.toLocaleDateString("en-US"), this.shift, this.site)
   }
   loading = this.loadingCtrl.create({     
-    content: 'Loading Please Wait...'
+    content: 'Please Wait...'
   });
   ionViewDidLoad() {
     // console.log('ionViewDidLoad RptGetShiftRptPage');
@@ -55,18 +56,20 @@ export class ShiftPosRptPage {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
       this.getData = JSON.parse(this.getData[0]);   
+      console.log(this.getData)
       this.rTotal = 0;           
         let amount1 = parseFloat(this.getData[0]["Amount1"]);
-        let amount2 = parseFloat(this.getData[0]["Amount2"]);
-        this.rTotal = amount1+amount2;
-
+        let amount2 = parseFloat(this.getData[0]["Amount2"]);   
         let Nl1 = parseFloat(this.getData[0]["NL1"]);
         let Nl2 = parseFloat(this.getData[0]["NL2"]);
+        let Ton1 = parseFloat(this.getData[0]["Ton1"]);
+        let Ton2 = parseFloat(this.getData[0]["Ton2"]);
+        this.rTotal = amount1+amount2;
         this.rTotal = amount1+amount2;
         this.NLTotal = Nl1+Nl2;
-        
-        // this.rTotal = this.total + this.rTotal;      
-      this.rTotal = this.rTotal.toFixed(3);
+        this.tonTotal= Ton1+Ton2;
+        this.tonTotal = this.tonTotal.toFixed(3);     
+      this.rTotal = this.rTotal.toFixed(2);
       this.loading.dismiss();
     },
     error => {

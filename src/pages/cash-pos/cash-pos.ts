@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams } from 'ionic-angular';
 import { ServicesProvider } from '../../providers/services/services';
 import { ToastController, LoadingController } from 'ionic-angular';
 import { map } from 'rxjs/operators';
@@ -20,15 +20,13 @@ export class CashPosPage {
   total = 0.0;
   rTotal: string;
   alartarry =[];
+  loading;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController,public loadingCtrl: LoadingController) {
+  constructor( public navParams: NavParams, public service: ServicesProvider, private toastCtrl: ToastController,public loadingCtrl: LoadingController) {
     this.getdata('S');   
   }
   
-  loading = this.loadingCtrl.create({
-    content: 'Please wait...'
-  });
-
+ 
   updateCss(){
     setTimeout(()=>{
       var div = document.querySelector('#itemListId');
@@ -50,7 +48,7 @@ export class CashPosPage {
   }
 
   ionViewDidLeave(){
-    this.loading.dismiss();
+    this.loading.dismissAll();
   }
 
   presentToast() {
@@ -63,15 +61,20 @@ export class CashPosPage {
   }
 
   refresh() {
-    this.getdata("R");
+    this.getdata("r");
   }
 
   getdata(sType) {
+  
 
     this.getData = [];
-    
-    this.loading.present();
-    this.service.getCash(sType).pipe(map(res => res)).subscribe(data => {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  
+     this.loading.present();
+    this.service.getCash(sType).pipe(map(res => res))
+    .subscribe(data => {
       var SubString = data.match(/\[(.*?)\]/);
       this.getData.push(SubString[0])
       this.getData = JSON.parse(this.getData[0]);
@@ -82,10 +85,10 @@ export class CashPosPage {
         this.alartarry.push(eachObj["UpStat"]);
       });
       this.updateCss();
-      this.loading.dismiss();
+      this.loading.dismissAll();
     },
       err => {
-        this.loading.dismiss();
+        this.loading.dismissAll();
         this.presentToast()
       });
   }

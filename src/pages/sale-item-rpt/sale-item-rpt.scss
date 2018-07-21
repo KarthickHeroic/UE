@@ -100,7 +100,9 @@
         padding-top: 7px;
         background-color: #CCC;
         .item{
-            background-color: #CCC;           
+            background-color: #CCC;    
+            font-size: 14px;
+    font-weight: 600;       
         }
         .item-md.item-block .item-inner{
             border-bottom: 0px;
@@ -108,12 +110,13 @@
     }
     .totalval
         {
-            font-size: 17px;
+            font-size: 15px;
+            font-weight: 600;
             z-index: 10;
             ion-grid{
                 ion-row{
                     ion-col:last-child{
-                        font-size: 20px;
+                        font-size: 15px;
                         font-weight: 600;
                     }
                 }

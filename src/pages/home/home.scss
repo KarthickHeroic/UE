@@ -6,7 +6,9 @@
     .bar-button-default-md{
         color:$themeColor
     }
-    ion-grid{height: 100%;    padding: 0px;}
+    ion-grid{    position: absolute;
+    top: 44px;
+    bottom: 0; padding: 0px;}
 
     mat-grid-list{
         margin-top: 10%;

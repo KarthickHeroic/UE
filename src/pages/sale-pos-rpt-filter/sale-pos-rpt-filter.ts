@@ -82,35 +82,16 @@ export class SalePosRptFilterPage {
       this.TotalSite2 = 0;
       this.TotalSite3 = 0;
       console.log(this.getData);
-   
-     
-      for (let i = 4; i < this.getData.length; i++) {
-        let C1Total;
-        let C2Total;
-        let C3Total;
-        if (this.getData[i]["C0"]!= "Net Total") {
-          C1Total = this.getData[i]["C1"];
-          C2Total = this.getData[i]["C2"];
-          C3Total = this.getData[i]["C3"];
-        }
-        else {
-          C1Total = '0.00';
-          C2Total = '0.00';
-          C3Total = '0.00';
-        }
-        this.TotalSite1 = +C1Total + +this.TotalSite1;
-        this.TotalSite2 = +C2Total + +this.TotalSite2;
-        this.TotalSite3 = +C3Total + +this.TotalSite3;
-      }
-     
-     
+      if(this.getData[3]["C1"]!=""){ this.TotalSite1 = parseFloat(this.getData[3]["C1"]);}else{this.TotalSite1=parseFloat("0.000")}
+      if(this.getData[3]["C2"]!=""){this.TotalSite2 = parseFloat(this.getData[3]["C2"]);}else{this.TotalSite2=parseFloat("0.000")}
+      if(this.getData[3]["C3"]!=""){this.TotalSite3 = parseFloat(this.getData[3]["C3"]);}else{this.TotalSite3=parseFloat("0.000")}
       if(this.tonnage=="Amount")
       {
-        for (let i = 0; i < 1; i++) {
-          this.getData[i]["C1"] = "₹" + this.getData[i]["C1"];
-          this.getData[i]["C2"] = "₹" + this.getData[i]["C2"];
-          this.getData[i]["C3"] = "₹" + this.getData[i]["C3"];
-        }  
+      
+          this.getData[0]["C1"] = "₹" + this.getData[0]["C1"];
+          this.getData[0]["C2"] = "₹" + this.getData[0]["C2"];
+          this.getData[0]["C3"] = "₹" + this.getData[0]["C3"];
+        
         this.TotalSite1 = this.TotalSite1.toFixed(2);
         this.TotalSite2 = this.TotalSite2.toFixed(2);
         this.TotalSite3 = this.TotalSite3.toFixed(2);     
