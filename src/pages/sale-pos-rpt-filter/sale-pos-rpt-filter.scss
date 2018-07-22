@@ -1,6 +1,6 @@
 #SalesPosRptFilter {  
     .itemTitle{
-        color:#000;      
+      //  color:#000;      
     }
     .item {
       font-size: 12.5px;
@@ -36,13 +36,18 @@
       margin-top: 112px !important;
     }
     ion-item:nth-child(3n+0) {
-      background: #dadada;
+      // background: #dadada;
+      border-bottom: 1px solid #dadada;
       color: #000;
       min-height: 30px;
       line-height: 30px;
     }
+    ion-item:nth-child(3){
+      background-color: #e1dede;
+    }
+   
     ion-item:nth-child(1), ion-item:nth-child(2) {
-        background: #adadad;
+      
         color: #000;
         min-height: 40px;
         line-height: 40px;
@@ -52,10 +57,10 @@
       }
       ion-item:nth-child(3){
         .itemTitle{
-            color:#fff;   
+         //   color:#fff;   
         }
-          color:#fff;
-        background:  #3e3e3e;
+        //   color:#fff;
+        // background:  #3e3e3e;
       }
 
   }
